@@ -1,9 +1,37 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import {
+    faHome,
+    faCalendarCheck,
+    faChartLine,
+    faEnvelopeOpen,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const environment = {
-  production: false
+    production: false,
+    menuItems: [
+        {
+            name: 'Home',
+            routeLink: '/homescreen',
+            icon: faHome,
+        },
+        {
+            name: 'Professional Experience',
+            routeLink: '/xp',
+            icon: faCalendarCheck,
+        },
+        {
+            name: 'Skillset',
+            routeLink: '/skills',
+            icon: faChartLine,
+        },
+        {
+            name: 'Contact me!',
+            routeLink: '/contact',
+            icon: faEnvelopeOpen,
+        },
+    ],
 };
 
 /*

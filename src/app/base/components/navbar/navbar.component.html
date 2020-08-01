@@ -1,0 +1,28 @@
+<nav>
+	<div (mouseenter)="toggle()">
+		<fa-icon [icon]="menuIcon" [size]="'2x'"></fa-icon>
+	</div>
+	<div [ngClass]="{show: show, menu: true }" (mouseleave)="toggle()">
+		<ul class="menu-content">
+			<li *ngFor="let menuItem of menuItems">
+				<span>
+					<fa-icon [icon]="menuItem.icon"></fa-icon>
+					<a
+						[routerLink]="[menuItem.routeLink]"
+						routerLinkActive="router-link-active"
+						>{{menuItem.name}}</a
+					>
+				</span>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<!-- <nav>
+    <ul *ngIf="observable|async">
+        <li *ngFor="let menuItem of menuItems" >
+            <fa-icon [icon]="menuItem.icon"></fa-icon>
+            <a [routerLink]="[menuItem.routeLink]" routerLinkActive="router-link-active" >{{menuItem.name}}</a>
+        </li>
+    </ul>
+</nav> -->
