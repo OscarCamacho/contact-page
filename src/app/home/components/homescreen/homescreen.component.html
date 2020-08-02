@@ -1,4 +1,28 @@
-<div class="container">
-    <div class="polygon"></div>
+<div class="polygon"></div>
+<!-- <div class="polygon-shadow"></div> -->
+<div class="header">
     <h1>Oscar Camacho</h1>
+    <h5>Fullstack Developer</h5>
+</div>
+<div class="two-columns-container">
+    <app-card>
+        <h2>About</h2>
+        <p class="text-justify">
+            I am a fullstack developer who is very passionate about code quality
+            and efficiency as well as eager to collaborate.
+        </p>
+        <p class="text-justify">
+            I have collaborated in a wide range of industry sectors such as
+            finantial, telecomunications, gouverment agencies thus increasing
+            the number of technologies, methodologies, architechtures I know.
+        </p>
+        <p>
+            Feel free to look around. I am always open to hearing about new and
+            exciting oportunities. You can contact me through this web
+            application or through the contact information shown
+            <a [routerLink]="['/contact']" routerLinkActive="router-link-active"
+                >here</a
+            >
+        </p>
+    </app-card>
 </div>

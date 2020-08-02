@@ -30,6 +30,26 @@ main {
     z-index: 1;
 }
 
+.two-columns-container {
+    display: grid;
+    gap: 2rem;
+    width: 100vw;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 100%));
+    grid-auto-rows:  minmax(min-content, max-content);
+}
+
+.text-justify {
+    text-align: justify;
+
+}
+
+@media only screen and ( max-width:899px ) {
+    .two-columns-container {
+        grid-template-columns: 100%;
+        height: 100vh;
+    }
+}
+
 /* @media only screen and ( max-width:899px ) {
     main {
         margin-top: var(--nav-height);
