@@ -50,7 +50,6 @@ export class NavbarComponent implements OnInit {
     }
 
     toggle(): void {
-        console.log('toggle', {show: this._show, lastHover: this._lastHover});
         if (!this._lastHover || Date.now() - this._lastHover > 1000) {
             this._show = !this._show;
             this._lastHover = Date.now();
