@@ -7,9 +7,7 @@
             <li *ngFor="let menuItem of menuItems">
                 <span>
                     <fa-icon [icon]="menuItem.icon"></fa-icon>
-                    <a
-                        [routerLink]="[menuItem.routeLink]"
-                        routerLinkActive="router-link-active"
+                    <a [routerLink]="[menuItem.routeLink]" (click)="toggle()"
                         >{{menuItem.name}}</a
                     >
                 </span>
@@ -17,12 +15,8 @@
         </ul>
     </div>
 </nav>
-
-<!-- <nav>
-    <ul *ngIf="observable|async">
-        <li *ngFor="let menuItem of menuItems" >
-            <fa-icon [icon]="menuItem.icon"></fa-icon>
-            <a [routerLink]="[menuItem.routeLink]" routerLinkActive="router-link-active" >{{menuItem.name}}</a>
-        </li>
-    </ul>
-</nav> -->
+<div class="polygon"></div>
+<div class="header">
+    <h1>Oscar Camacho</h1>
+    <h5>Fullstack Developer</h5>
+</div>

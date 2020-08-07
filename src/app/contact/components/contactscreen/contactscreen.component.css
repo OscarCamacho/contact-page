@@ -1,0 +1,96 @@
+.contactFormContainer {
+	height: 90hv;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	align-items: center;
+}
+
+.contactFormField {
+	width: 100%;
+	position: relative;
+	margin: 1rem auto 1rem;
+	border-bottom: 0.2rem solid var(--text-secondary);
+}
+
+.contactFormField::after {
+	content: '';
+	bottom: -0.11rem;
+	margin: 0;
+	position: relative;
+	display: block;
+	height: 0.25rem;
+	background: var(--contrast-primary);
+	transform: scaleX(0);
+	transform-origin: 0%;
+	transition: transform var(--transition-speed) ease;
+}
+
+.contactFormField:focus-within {
+	border-color: transparent;
+}
+
+.contactFormField:focus-within::after {
+	transform: scaleX(1);
+}
+
+.contactFormField:focus-within .label, 
+.input:not(:placeholder-shown) + .label{
+	transform: scale(0.8) translateY(-4rem);
+	opacity: 0.6;
+	transition: all var(--transition-speed) ease;
+}
+
+.contactFormField:focus-within .textareaLabel,
+.textarea:not(:placeholder-shown) + .textareaLabel{
+	transform: scale(0.8) translateY(-10.3rem);
+	opacity: 0.6;
+	transition: all var(--transition-speed) ease;
+}
+
+.label, .textareaLabel {
+	z-index: -1;
+	position: absolute;
+	bottom: -1rem;
+	left: 1rem;
+	transform: translateY(-2rem);
+	transform-origin: 0%;
+	transition: transform var(--transition-speed);
+	color: var(--text-primary);
+	opacity: 0.9;
+	font-size: 1.1rem;
+}
+
+.input, .textarea {
+	outline: none;
+	border: none;
+	overflow: hidden;
+	margin: 0;
+	width: 100%;
+	padding: 0.25rem 0;
+	background: none;
+	color: var(--text-primary);
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.textarea {
+	bottom: -0.2rem;
+	height: 15vh;
+}
+
+button {
+	outline: none;
+	border: none;
+	background: var(--contrast-primary);
+	color: var(--bg-primary);
+	width: fit-content;
+	height: fit-content;
+	padding: 1rem;
+	font-size: 18px;
+}
+
+button:hover {
+	background: var(--contrast-secondary);
+	transition: all calc(var(--transition-speed) * 0.6) ease;
+}

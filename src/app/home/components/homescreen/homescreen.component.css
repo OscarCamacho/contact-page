@@ -15,6 +15,7 @@ h1, h5 {
 	justify-content: center;
 	z-index: 6;
 	margin: 0;
+	margin-bottom: 1rem;
 	font-weight: 600;
 	color: var(--text-primary);
 	text-shadow: var(--text-secondary);

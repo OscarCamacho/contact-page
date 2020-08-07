@@ -46,7 +46,7 @@ a:hover {
 	display: flex !important;
 	flex-direction: column !important;
 	transition: width var(--transition-speed) ease;
-	transition: opacity var(--tramsition-speed) ease-out;
+	transition: opacity var(--transition-speed) ease-out;
 }
 
 .menu {
@@ -58,7 +58,7 @@ a:hover {
 	z-index: 10;
 	border-bottom: 5px;
 	box-shadow: rgba(32, 32, 32, 0.185) 0px 2px 2px 0px;
-	transition: opacity var(--tramsition-speed) ease-in;
+	transition: opacity var(--transition-speed) ease-in;
 }
 
 .menu-content {
@@ -102,4 +102,49 @@ li a {
 		width: 100%;
 		left: 0rem;
 	}
+	.polygon {
+		clip-path: polygon(0% 0%, 0% 55%, 50% 65%, 100% 55%, 100% 0%);
+	}
+	.polygon {
+		height: 32vh;
+	}
+	.header{
+		top: var(--nav-height);
+	}
+}
+
+.polygon {
+	position: absolute;
+	top: 0;
+	background-color: var(--contrast-primary);
+	width: 100vw;
+	height: 20vh;
+	z-index: 3;
+	clip-path: polygon(0% 0%, 0% 55%, 50% 80%, 100% 55%, 100% 0%);
+	box-shadow: 0 0 1rem 1rem black;
+}
+.header {
+	position: absolute;
+	top: 1.5rem;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	text-align: center;
+	z-index: 5;
+}
+
+h1, h5 {
+	align-content: center;
+	justify-content: center;
+	z-index: 6;
+	margin: 0;
+	font-weight: 600;
+	color: var(--text-primary);
+	text-shadow: var(--text-secondary);
+}
+
+h5 {
+	text-transform: uppercase;
 }

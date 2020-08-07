@@ -6,11 +6,13 @@
     --text-primary: #000000;
     --text-secondary: #6b6a6a;
     --nav-height: 3rem;
-    --nav-primary: #a3a3a3d8;
-    --nav-secondary: #727272d8;
-    --bg-primary: #eeeeeec2;
+    --nav-primary: #a3a3a3;
+    --nav-secondary: #727272;
+    --bg-primary: #fffef5c2;
     --bg-secondary: #a3a3a3d8;
-    --tramsition-speed: 600ms;
+    --contrast-primary: #009fc4;
+    --contrast-secondary: #18bde2;
+    --transition-speed: 600ms;
 }
 
 body {
@@ -23,7 +25,7 @@ body {
 
 main {
     position: absolute;
-    top: 0;
+    top: 7.5rem;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -34,13 +36,12 @@ main {
     display: grid;
     gap: 2rem;
     width: 100vw;
-    grid-template-columns: repeat(auto-fill, minmax(50%, 100%));
+    grid-template-columns: minmax(50%, 100%) minmax(50%, 100%);
     grid-auto-rows:  minmax(min-content, max-content);
 }
 
 .text-justify {
     text-align: justify;
-
 }
 
 @media only screen and ( max-width:899px ) {

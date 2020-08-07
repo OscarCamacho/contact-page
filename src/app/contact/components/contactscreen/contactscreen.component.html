@@ -1,0 +1,34 @@
+<div class="two-columns-container">
+    <app-card id="contactForm">
+        <div class="contactFormContainer">
+            <p>Please fill this form to raise a contact request</p>
+            <br />
+            <div class="contactFormField">
+                <input id="name" class="input" placeholder="" />
+                <label for="name" class="label">Name</label>
+            </div>
+            <div class="contactFormField">
+                <input id="subject" class="input" placeholder="" />
+                <label for="subject" class="label">Subject</label>
+            </div>
+            <div class="contactFormField">
+                <input id="email" class="input" placeholder="" />
+                <label for="email" class="label">Email Address</label>
+            </div>
+            <div class="contactFormField">
+                <textarea id="email" class="textarea" placeholder=""></textarea>
+                <label for="email" class="textareaLabel">Message</label>
+            </div>
+            <button>
+                <fa-icon [icon]="sendIcon"></fa-icon>
+                Send
+            </button>
+        </div>
+    </app-card>
+    <app-card id="contact information">
+        <div class="contactInfoContainer">
+            <p>Or you can contact me by e-mail to the address</p>
+            <h4>{{_contactMail}}</h4>
+        </div>
+    </app-card>
+</div>

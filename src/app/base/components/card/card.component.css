@@ -1,14 +1,16 @@
 .card{
+	transition: all calc( var(--transition-speed) * 0.6 ) ease;
 	background-color: var(--bg-primary);
 	width: 100%;
 	height: 100%;
-	box-shadow: #9e9e9e94 0px 0.15rem 0.15rem 0.05rem, #9e9e9e94 0px 0.15rem 0.15rem 0.05rem;
+	box-shadow: #9e9e9e94 0px 0.15rem 0.15rem 0.05rem, #9e9e9e94 0px 0.1rem 0.1rem 0.05rem;
 	border-radius: 0.05rem;
 	margin: 0;
 }
 
-.card:hover{
-	box-shadow: rgba(65, 65, 65, 0.877) 0px 0.18rem 0.18rem 0.1rem, rgba(65, 65, 65, 0.877) 0px 0.18rem 0.18rem 0.1rem;
+.card:hover {
+	transition: all calc( var(--transition-speed) * 0.6 ) ease;
+	box-shadow: rgba(65, 65, 65, 0.877) 0px 0.15rem 0.15rem 0.1rem, rgba(65, 65, 65, 0.877) 0px 0.15rem 0.15rem 0.1rem;
 }
 
 .card-content {
