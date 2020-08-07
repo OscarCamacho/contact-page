@@ -23,4 +23,8 @@ export class ContactscreenComponent implements OnInit {
     get _contactMail(): string {
         return this.contactMail;
     }
+
+    sendContactRequest(): void {
+        alert('This functionality is not yet implemented');
+    }
 }
