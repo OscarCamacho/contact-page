@@ -29,4 +29,5 @@ export const environment = {
             icon: faEnvelopeOpen,
         },
     ],
+    contactMail: 'oscar.u.camacho.hernandez@gmail.com',
 };
