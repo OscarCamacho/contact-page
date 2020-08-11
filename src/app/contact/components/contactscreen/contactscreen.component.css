@@ -10,7 +10,7 @@
 	width: 100%;
 	position: relative;
 	margin: 1rem auto 1rem;
-	border-bottom: 0.2rem solid var(--text-secondary);
+	border-bottom: 0.15rem solid var(--text-secondary);
 }
 
 .contactFormField::after {
@@ -20,10 +20,11 @@
 	position: relative;
 	display: block;
 	height: 0.25rem;
-	background: var(--contrast-primary);
+	background: var(--contrast-secondary);
 	transform: scaleX(0);
 	transform-origin: 0%;
-	transition: transform var(--transition-speed) ease;
+	transition: all var(--transition-speed) ease;
+	opacity: 0;
 }
 
 .contactFormField:focus-within {
@@ -32,6 +33,7 @@
 
 .contactFormField:focus-within::after {
 	transform: scaleX(1);
+	opacity: 1;
 }
 
 .contactFormField:focus-within .label, 
@@ -45,7 +47,7 @@
 .textarea:not(:placeholder-shown) + .textareaLabel{
 	transform: scale(0.8) translateY(-10.3rem);
 	opacity: 0.6;
-	transition: all var(--transition-speed) ease;
+	transition: all calc(var(--transition-speed) * 0.85) ease;
 }
 
 .label, .textareaLabel {
@@ -57,7 +59,8 @@
 	transform-origin: 0%;
 	transition: transform var(--transition-speed);
 	color: var(--text-primary);
-	opacity: 0.9;
+	opacity: 1;
+	font-weight: bold;
 	font-size: 1.1rem;
 }
 
@@ -93,4 +96,16 @@ button {
 button:hover {
 	background: var(--contrast-secondary);
 	transition: all calc(var(--transition-speed) * 0.6) ease;
+}
+
+.contactInfoContainer {
+	display: flex;
+	align-items: center;
+	text-align: justify;
+	flex-direction: column;
+	padding-top: 25%;
+}
+
+.contactInfoContainer * {
+	margin: 0.35rem;
 }

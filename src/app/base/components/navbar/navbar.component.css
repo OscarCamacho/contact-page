@@ -84,12 +84,9 @@ li:hover {
 	transition: background-color var(--transition-speed) ease;
 }
 
-li:hover span fa-icon {
-	color: var(--text-primary);
-}
-
+li:hover span fa-icon,
 li:hover span a {
-	color: var(--text-primary);
+	color: var(--nav-primary);
 }
 
 li a {

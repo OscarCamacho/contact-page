@@ -1,34 +1,66 @@
 <div class="two-columns-container">
     <app-card id="contactForm">
-        <div class="contactFormContainer">
+        <form
+            [formGroup]="contactForm"
+            class="contactFormContainer"
+            (ngSubmit)="sendContactRequest()"
+        >
             <p>Please fill this form to raise a contact request</p>
             <br />
             <div class="contactFormField">
-                <input id="name" class="input" placeholder="" />
+                <input
+                    id="name"
+                    class="input"
+                    placeholder=""
+                    formControlName="name"
+                />
                 <label for="name" class="label">Name</label>
             </div>
             <div class="contactFormField">
-                <input id="subject" class="input" placeholder="" />
+                <input
+                    id="subject"
+                    class="input"
+                    placeholder=""
+                    formControlName="subject"
+                />
                 <label for="subject" class="label">Subject</label>
             </div>
             <div class="contactFormField">
-                <input id="email" class="input" placeholder="" />
+                <input
+                    id="email"
+                    class="input"
+                    placeholder=""
+                    formControlName="email"
+                />
                 <label for="email" class="label">Email Address</label>
             </div>
             <div class="contactFormField">
-                <textarea id="email" class="textarea" placeholder=""></textarea>
+                <textarea
+                    id="email"
+                    class="textarea"
+                    placeholder=""
+                    formControlName="message"
+                ></textarea>
                 <label for="email" class="textareaLabel">Message</label>
             </div>
-            <button (click)="sendContactRequest()">
+            <button type="submit">
                 <fa-icon [icon]="sendIcon"></fa-icon>
                 Send
             </button>
-        </div>
+        </form>
     </app-card>
     <app-card id="contact information">
         <div class="contactInfoContainer">
-            <p>Or you can contact me by e-mail to the address</p>
-            <h4>{{_contactMail}}</h4>
+            <p>You can reach out to me through E-mail</p>
+            <br />
+            <h3>{{_contactMail}}</h3>
+            <br />
+            <p>
+                Don't forget to mention a means of comunication so I can get
+                back to you
+            </p>
+            <br />
+            <p>I will try to answer in a maximum of 3 business days</p>
         </div>
     </app-card>
 </div>

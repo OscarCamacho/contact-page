@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EnvironmentService} from 'src/app/base/services/environment.service';
-import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
+import {faPaperPlane, faPray} from '@fortawesome/free-solid-svg-icons';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
     templateUrl: './contactscreen.component.html',
@@ -9,6 +10,13 @@ import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 export class ContactscreenComponent implements OnInit {
     sendIcon = faPaperPlane;
     private contactMail: string;
+
+    contactForm = new FormGroup({
+        name: new FormControl(''),
+        subject: new FormControl(''),
+        email: new FormControl(''),
+        message: new FormControl(''),
+    });
 
     constructor(private environmentService: EnvironmentService) {}
 
@@ -25,6 +33,7 @@ export class ContactscreenComponent implements OnInit {
     }
 
     sendContactRequest(): void {
+        console.log('sendContactRequest', {form: this.contactForm.value});
         alert('This functionality is not yet implemented');
     }
 }
