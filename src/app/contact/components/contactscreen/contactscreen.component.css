@@ -103,9 +103,15 @@ button:hover {
 	align-items: center;
 	text-align: justify;
 	flex-direction: column;
-	padding-top: 25%;
+	background: crimson;
+	margin: 0;
 }
 
 .contactInfoContainer * {
-	margin: 0.35rem;
+	margin-top: 0.35rem;
+}
+
+#contactInformation .card .card-content {
+	margin: 0;
+	background-color: darkgreen;
 }

@@ -19,6 +19,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0px;
+    padding: 0px;
     overflow: hidden;
     background-color: var(--bg-primary);
 }
@@ -27,8 +28,8 @@ main {
     position: absolute;
     top: 7.5rem;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
@@ -38,6 +39,7 @@ main {
     width: 100vw;
     grid-template-columns: minmax(50%, 100%) minmax(50%, 100%);
     grid-auto-rows:  minmax(min-content, max-content);
+    grid-row: auto;
 }
 
 .text-justify {
