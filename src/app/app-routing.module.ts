@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeRoutingModule} from './home/home-routing.module';
-import {HomeModule} from './home/home.module';
+import {SkillDetailComponent} from './skillset/components/skill-detail/skill-detail.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: '/homescreen'},
     {path: 'homescreen', redirectTo: '/homescreen', pathMatch: 'full'},
+    {path: 'skillset', redirectTo: '/skill', pathMatch: 'full'},
 ];
 
 @NgModule({

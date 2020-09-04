@@ -1,0 +1,18 @@
+<div class="header">
+    <h1>Skillset</h1>
+    <p>Here you will see all my skills</p>
+</div>
+<div class="listContainer">
+    <ul *ngIf="skillset">
+        <li *ngFor="let skill of skillset" (click)="selectSkill(skill)">
+            <div>
+                <h3>{{skill.name}}</h3>
+                <div
+                    [ngClass]="['proficiencyMeter',skill.proficiency | lowercase]"
+                >
+                    {{skill.proficiency}}
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

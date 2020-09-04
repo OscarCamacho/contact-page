@@ -23,7 +23,7 @@ export const environment = {
         },
         {
             name: 'Skillset',
-            routeLink: '/skills',
+            routeLink: '/skillset',
             icon: faChartLine,
         },
         {
@@ -33,6 +33,10 @@ export const environment = {
         },
     ],
     contactMail: 'oscar.u.camacho.hernandez@gmail.com',
+    skillset: [
+        {name: 'Java', proficiency: 'Senior', experience: '3.5'},
+        {name: 'JavaScript', proficiency: 'Junior', experience: '3.5'},
+    ],
 };
 
 /*

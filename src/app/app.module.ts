@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BaseModule } from './base/base.module';
 import { HomeModule } from './home/home.module';
 import { ContactModule } from './contact/contact.module';
+import { SkillsetModule } from './skillset/skillset.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContactModule } from './contact/contact.module';
     AppRoutingModule,
     BaseModule,
     HomeModule,
-    ContactModule
+    ContactModule,
+    SkillsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
