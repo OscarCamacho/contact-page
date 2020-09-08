@@ -1,3 +1,11 @@
-<p>skill-detail works!</p>
-<br />
-<p>{{_skill}}</p>
+<div *ngIf="_skill" class="skillDetail">
+    <div class="header">
+        <h2>{{_skill.name}}</h2>
+    </div>
+    <div>
+        <p *ngIf="_skill.description">{{_skill.description}}</p>
+    </div>
+</div>
+<div *ngIf="!_skill" class="skillDetail">
+    <p>Select a skill to view more details</p>
+</div>

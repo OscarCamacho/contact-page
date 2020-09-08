@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {EnvironmentService} from 'src/app/base/services/environment.service';
 import {Skill} from '../../../base/entities/skill';
 import {Router} from '@angular/router';
 import {SkillbridgeService} from '../../skillbridge.service';
+import {Observable, of} from 'rxjs';
 
 @Component({
     selector: 'app-skill-list',
@@ -23,8 +23,7 @@ export class SkillListComponent implements OnInit {
 
     selectSkill(skill: Skill): void {
         this.skill = skill;
-        console.log('Selected skill', skill);
-        this.service.selectSkill(skill);
+        this.service.skill = of(this.skill || ({} as Skill));
         this.router.navigate([`/skill/detail/${skill.name}`]);
     }
 }

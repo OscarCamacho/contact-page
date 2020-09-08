@@ -1,5 +1,7 @@
 export interface Skill {
     name: string;
-    proficiency: number;
-    experience: number;
+    proficiency: string;
+    experience: string;
+    description?: string;
+    frameworks?: any[];
 }

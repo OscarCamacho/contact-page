@@ -7,6 +7,7 @@ import {
     faChartLine,
     faEnvelopeOpen,
 } from '@fortawesome/free-solid-svg-icons';
+import {Skill} from 'src/app/base/entities/skill';
 
 export const environment = {
     production: false,
@@ -34,9 +35,15 @@ export const environment = {
     ],
     contactMail: 'oscar.u.camacho.hernandez@gmail.com',
     skillset: [
-        {name: 'Java', proficiency: 'Senior', experience: '3.5'},
+        {
+            name: 'Java',
+            proficiency: 'Senior',
+            experience: '3.5',
+            description:
+                'Most of my experience is based arround this Language.',
+        },
         {name: 'JavaScript', proficiency: 'Junior', experience: '3.5'},
-    ],
+    ] as Skill[],
 };
 
 /*

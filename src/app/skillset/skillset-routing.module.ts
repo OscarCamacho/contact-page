@@ -11,6 +11,7 @@ const routes: Routes = [
         children: [
             {path: 'list', component: SkillListComponent},
             {path: 'detail/:name', component: SkillDetailComponent},
+            {path: '**', component: SkillDetailComponent},
         ],
     },
 ];

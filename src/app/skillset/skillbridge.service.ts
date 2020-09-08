@@ -7,13 +7,14 @@ import {Observable, of} from 'rxjs';
     providedIn: 'root',
 })
 export class SkillbridgeService {
-    private _skill: Skill;
+    private _skill: Observable<Skill>;
     private _list: Skill[];
 
     constructor(private envService: EnvironmentService) {
         envService
             .getValue('skillset')
             .subscribe((list: Skill[]) => (this._list = list));
+        this._skill = of({} as Skill);
     }
 
     public get list(): Observable<Skill[]> {
@@ -21,9 +22,10 @@ export class SkillbridgeService {
     }
 
     public get skill(): Observable<Skill> {
-        return of(this._skill);
+        return this._skill;
     }
-    public selectSkill(s: Skill): void {
+    public set skill(s: Observable<Skill>) {
         this._skill = s;
+        console.log('Selected skill', this._skill);
     }
 }

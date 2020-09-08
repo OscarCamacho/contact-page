@@ -9,7 +9,7 @@ import {SkillbridgeService} from '../../skillbridge.service';
     styleUrls: ['./skill-detail.component.css'],
 })
 export class SkillDetailComponent implements OnInit {
-    private skill: any;
+    private skill: Skill = undefined;
 
     constructor(
         private route: ActivatedRoute,
@@ -18,11 +18,15 @@ export class SkillDetailComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('skill detail ngInit');
+        let skillName = '';
         this.route.url.subscribe((url) => {
-            this.skill = url[1].path;
-            console.log('route change', url, this.skill);
+            skillName = url[1].path;
+            console.log('route change', url);
+            this.service.skill.subscribe((s: Skill) => {
+                this.skill = s;
+                console.log('skill change', this.skill);
+            });
         });
-        // this.service.skill.subscribe((s: Skill) => (this.skill = s));
     }
 
     get _skill(): Skill {
