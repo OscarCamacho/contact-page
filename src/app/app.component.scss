@@ -1,0 +1,15 @@
+canvas {
+  top: 0;
+  left: 0;
+  z-index: 0;
+  position: absolute;
+  background-color: black;
+}
+
+main {
+  z-index: 1;
+  color: azure;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
