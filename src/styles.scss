@@ -1,6 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+
 body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  font-family: Urbanist ,Arial, Helvetica, sans-serif;
+}
+
+.card {
+  border: 0.2rem;
+  border-radius: 5px;
+  border-color: rgba(240, 248, 255, 0.63);
+  background-color: rgb(73 73 73 / 20%);
+  padding: 1rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+.card:hover {
+  background-color: rgb(73 73 73 / 50%);
 }

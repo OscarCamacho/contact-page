@@ -11,9 +11,25 @@ main {
   color: azure;
   position: absolute;
   top: 1rem;
-  left: 1rem;
   display: grid;
-  width: 100vw;
-  grid-template: "nav"
-  "body";
+  width: 99vw;
+  grid-template-areas:  "nav"
+                        "body";
+}
+
+app-nav {
+  grid-area: nav;
+}
+
+app-about, app-skills,
+app-experience, app-contact {
+  grid-area: body;
+  margin: auto;
+  width: 90vw;
+  position: relative;
+  top: 25vh;
+}
+
+app-skills {
+  top: 2vh;
 }

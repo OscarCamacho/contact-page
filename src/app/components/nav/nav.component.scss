@@ -1,6 +1,6 @@
 nav {
   grid-area: "nav";
-  width: 100vw;
+  width: 98vw;
 }
 
 ul {
@@ -8,8 +8,6 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90vw;
-  align-items: center;
 }
 
 li {
@@ -20,4 +18,5 @@ li {
 
 li:hover {
   background-color: rgba(255, 255, 255, 0.158);
+  text-decoration: underline;
 }
