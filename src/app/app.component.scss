@@ -1,6 +1,7 @@
 canvas {
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 0;
   position: absolute;
   background-color: black;
@@ -12,7 +13,7 @@ main {
   position: absolute;
   top: 1rem;
   display: grid;
-  width: 99vw;
+  width: 100vw;
   grid-template-areas:  "nav"
                         "body";
 }
