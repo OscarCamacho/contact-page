@@ -22,13 +22,16 @@ app-nav {
   grid-area: nav;
 }
 
-app-about, app-skills,
-app-experience, app-contact {
+app-about, app-skills, app-contact {
   grid-area: body;
   margin: auto;
   width: 90vw;
   position: relative;
   top: 25vh;
+}
+
+app-experience {
+  top: 15vh;
 }
 
 app-skills {

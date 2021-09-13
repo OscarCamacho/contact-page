@@ -1,0 +1,40 @@
+.experiences-container {
+  width: 96%;
+  margin: auto;
+}
+
+.year-container {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+.experience-container {
+  display: grid;
+  grid-template-areas: "a a a" "b c d";
+  width: 90%;
+  height: 70vh;
+  margin: auto;
+  overflow-y: auto;
+}
+
+.experience-container #identifier {
+  grid-area: a;
+}
+
+.experience-container #roles {
+  grid-area: b;
+}
+
+.experience-container #techs {
+  grid-area: c;
+}
+
+.experience-container #achievements {
+  grid-area: d;
+}
