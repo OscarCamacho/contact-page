@@ -1,6 +1,7 @@
 <div *ngIf="display$ | async" class="card experiences-container">
   <div class="year-container">
-    <span *ngFor="let experienceName of experiences$ | async">{{experienceName}}</span>
+    <span *ngFor="let experienceName of experiences$ | async; index as i"
+      (click)="handleTimeChange($event, i)">{{experienceName}}</span>
   </div>
   <input id="time" type="range" [value]="time$ | async" [max]="experienceCount$ | async"
     (change)="handleTimeChange($event)">

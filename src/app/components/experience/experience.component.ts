@@ -22,8 +22,8 @@ export class ExperienceComponent {
   constructor(private readonly navService: NavigationService,
     private readonly experienceService: ExperienceService) {}
 
-  handleTimeChange(event: Event) {
-    this.time$.next(Number((<HTMLInputElement>event.target).value) || 0)
+  handleTimeChange(event: Event, index?: number) {
+    this.time$.next(Number((<HTMLInputElement>event.target).value) || index || 0)
   }
 
 }
