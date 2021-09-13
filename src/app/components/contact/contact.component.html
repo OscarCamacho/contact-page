@@ -6,7 +6,7 @@
   <ul>
     <li *ngFor="let contact of contactList$ | async">
       <a [href]="contact.url">
-        <fa-icon [icon]="contact.icon"></fa-icon>
+        <fa-icon [icon]="contact.icon" size="lg"></fa-icon>
         {{contact.name}}
       </a>
     </li>

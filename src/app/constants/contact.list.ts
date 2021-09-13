@@ -5,12 +5,12 @@ import { ContactInfo } from "../model/contact.info";
 export const CONTACT_LIST: ContactInfo[] = [
   {
     name: "LinkedIn",
-    url: "linkedin.com/in/oscar-u-camacho",
+    url: "https://www.linkedin.com/in/oscar-u-camacho",
     icon: faLinkedinIn
   },
   {
     name: "GitHub",
-    url: "github.com/OscarCamacho",
+    url: "https://www.github.com/OscarCamacho",
     icon: faGithub
   },
   {

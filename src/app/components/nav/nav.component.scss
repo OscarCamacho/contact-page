@@ -1,6 +1,8 @@
 nav {
   grid-area: "nav";
-  width: 98vw;
+  width: 80vw;
+  margin: auto;
+  padding: 0;
 }
 
 ul {
@@ -8,12 +10,15 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 li {
   padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  font-size: large;
 }
 
 li:hover {
