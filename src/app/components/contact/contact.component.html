@@ -1,3 +1,14 @@
-<div *ngIf="display$ | async">
-  <p>contact works!</p>
+<div *ngIf="display$ | async" class="card contact-container">
+  <h1>Thanks for visiting this site!</h1>
+  <h2>Feel free to share your feedback by mail</h2>
+  <br><br>
+  <h3>You can also contact me in my social media through these links</h3>
+  <ul>
+    <li *ngFor="let contact of contactList$ | async">
+      <a [href]="contact.url">
+        <fa-icon [icon]="contact.icon"></fa-icon>
+        {{contact.name}}
+      </a>
+    </li>
+  </ul>
 </div>
