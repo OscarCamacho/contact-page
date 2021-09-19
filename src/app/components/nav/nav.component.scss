@@ -1,5 +1,4 @@
 nav {
-  grid-area: "nav";
   width: 80vw;
   margin: auto;
   padding: 0;
@@ -24,4 +23,21 @@ li {
 li:hover {
   background-color: rgba(255, 255, 255, 0.158);
   text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  nav {
+    width: 100%;
+    margin: auto;
+  }
+  li {
+    font-size: medium;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  ul {
+    margin: auto;
+    padding: 1rem;
+  }
 }

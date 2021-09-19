@@ -42,3 +42,13 @@ app-contact {
   top: 10vh;
   width: fit-content;
 }
+
+@media (max-width: 600px) {
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+  main {
+    top: 0;
+  }
+}

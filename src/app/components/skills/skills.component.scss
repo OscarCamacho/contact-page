@@ -134,3 +134,53 @@ h2 {
 p {
   text-align: justify;
 }
+
+@media (max-width: 800px) {
+  .gallery {
+    height: 90vh;
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
+  .skill-list {
+    height: 65vh;
+    width: fit-content;
+    padding-right: 0.5rem;
+  }
+  .skill-list li span {
+    display: none;
+  }
+  .skill {
+    grid-template-areas: "image text" "title text";
+    height: 65vh;
+  }
+  .skill h3 {
+    grid-column: auto;
+    padding: 0.5rem;
+  }
+  #skill-logo {
+    padding: 0;
+    top: 0;
+  }
+  .portraitLogo {
+    width: 4rem;
+    height: 6rem;
+  }
+  .landscapeLogo {
+    width: 6rem;
+    height: 4rem;
+  }
+  .squareLogo {
+    width: 6rem;
+    height: 6rem;
+  }
+  .text-container {
+    height: 50vh;
+    width: 50vw;
+    grid-column: span 2;
+  }
+  .framework {
+    grid-template-areas: "image" "title" "text";
+    height: 35vh;
+  }
+}
