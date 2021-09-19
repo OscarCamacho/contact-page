@@ -18,3 +18,10 @@ li a {
 li a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 800px) {
+  .contact-container {
+    width: 80vw;
+    margin: auto;
+  }
+}

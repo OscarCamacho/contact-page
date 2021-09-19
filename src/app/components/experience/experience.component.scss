@@ -49,3 +49,23 @@ input[type=range] {
 .experience-container #achievements {
   grid-area: d;
 }
+
+@media (max-width: 800px) {
+  .experience-container {
+    grid-template-areas: "a" "b" "c" "d";
+    height: 60vh;
+  }
+  .experiences-container {
+    height: 80vh;
+    padding-left: 1rem;
+    padding-right: 0.3rem;
+    margin: initial;
+  }
+  .year-container span {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  input[type=range] {
+    width: 80vw;
+  }
+}
