@@ -1,0 +1,15 @@
+<article>
+  <header><h2>Skills</h2></header>
+  <article class="skillContainer">
+    <details *ngFor="let categoryWithSkills of categoriesWithSkills$ | async">
+      <summary>{{categoryWithSkills.category}}</summary>
+      <details *ngFor="let skill of categoryWithSkills.skills">
+        <summary>{{skill.displayName}}</summary>
+        <ul>
+          <li>{{skill.yearsOfExperience}} years of experience.</li>
+          <li>{{skill.proficiency}} proficiency level.</li>
+        </ul>
+      </details>
+    </details>
+  </article>
+</article>

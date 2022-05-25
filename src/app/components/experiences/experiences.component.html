@@ -1,0 +1,18 @@
+<article>
+  <h2>Professional Experiences.</h2>
+  <article *ngFor="let experience of experiences$ | async">
+    <details>
+      <summary>{{experience.roleTitle}} at {{experience.company}}</summary>
+      <article>
+        <span>{{experience.startDate | experienceDate}} - {{experience.endDate | experienceDate}}</span>
+        <br>
+        <span>{{experience.duration}}</span>
+        <ul>
+          <li *ngFor="let achievement of experience.achievements">
+            {{achievement}}
+          </li>
+        </ul>
+      </article>
+    </details>
+  </article>
+</article>
