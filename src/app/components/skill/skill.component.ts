@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Skill } from 'src/app/model/skill';
 import { SkillService } from 'src/app/services/skill.service';
 

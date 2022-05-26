@@ -6,7 +6,7 @@ import { ExperiencesComponent } from './components/experiences/experiences.compo
 import { SkillComponent } from './components/skill/skill.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent, pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: BasicInfoComponent},
   {path: 'skills', component: SkillComponent},
   {path: 'experiences', component: ExperiencesComponent},
