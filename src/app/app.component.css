@@ -1,7 +1,8 @@
 main {
   margin: auto;
   display: flex;
-  margin-top: 30%;
+  margin-top: 5%;
   width: 100%;
   height: 100%;
+  justify-content: center;
 }
