@@ -1,10 +1,18 @@
 <nav>
   <ul>
-    <li><h4><strong>{{displayName$ | async}}</strong></h4></li>
+    <li>
+      <h4>
+        <strong>{{ displayName$ | async }}</strong>
+      </h4>
+    </li>
   </ul>
   <ul>
     <li><a routerLink="home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="experiences" routerLinkActive="active">Professional Experience</a></li>
+    <li>
+      <a routerLink="experiences" routerLinkActive="active"
+        >Professional Experience</a
+      >
+    </li>
     <li><a routerLink="skills" routerLinkActive="active">Skills</a></li>
   </ul>
 </nav>

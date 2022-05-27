@@ -5,15 +5,14 @@ import { BasicInfo } from '../model/basic.info';
 import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BasicInfoService extends ApiService<BasicInfo> {
   constructor(override readonly httpClient: HttpClient) {
     super(httpClient);
   }
 
-  get basicInfo (): Observable<BasicInfo> {
+  get basicInfo(): Observable<BasicInfo> {
     return this.getResourceFromApi('basic-info');
   }
-
 }

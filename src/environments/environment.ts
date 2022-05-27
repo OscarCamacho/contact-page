@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: "http://localhost:8080/v1/contact-page",
-  basicInfoResource: "basic-info",
-  professionalExperienceResource: "experience",
-  skillsEndpoint: "skills"
+  apiEndpoint: 'http://localhost:8080/v1/contact-page',
+  basicInfoResource: 'basic-info',
+  professionalExperienceResource: 'experience',
+  skillsEndpoint: 'skills',
 };
 
 /*

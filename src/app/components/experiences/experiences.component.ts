@@ -6,13 +6,13 @@ import { ProfessionalExperienceService } from 'src/app/services/professional-exp
 @Component({
   selector: 'experiences',
   templateUrl: './experiences.component.html',
-  styleUrls: ['./experiences.component.css']
+  styleUrls: ['./experiences.component.css'],
 })
 export class ExperiencesComponent {
-
   readonly experiences$: Observable<ProfessionalExperience[]> =
     this.experiencesService.experiences;
 
-  constructor(private readonly experiencesService: ProfessionalExperienceService) {}
-
+  constructor(
+    private readonly experiencesService: ProfessionalExperienceService
+  ) {}
 }

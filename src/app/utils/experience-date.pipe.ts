@@ -12,14 +12,13 @@ const MONTHS = [
   'September',
   'October',
   'November',
-  'December'
+  'December',
 ];
 
 @Pipe({
-  name: 'experienceDate'
+  name: 'experienceDate',
 })
 export class ExperienceDatePipe implements PipeTransform {
-
   transform(value: Date | undefined): string {
     if (value) {
       const date = new Date(value);
@@ -28,5 +27,4 @@ export class ExperienceDatePipe implements PipeTransform {
       return 'Current';
     }
   }
-
 }
