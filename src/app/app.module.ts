@@ -8,6 +8,8 @@ import { BasicInfoComponent } from './components/basic-info/basic-info.component
 import { SkillComponent } from './components/skill/skill.component';
 import { ExperiencesComponent } from './components/experiences/experiences.component';
 import { ExperienceDatePipe } from './utils/experience-date.pipe';
+import { AdminComponent } from './components/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,14 @@ import { ExperienceDatePipe } from './utils/experience-date.pipe';
     SkillComponent,
     ExperiencesComponent,
     ExperienceDatePipe,
+    AdminComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
