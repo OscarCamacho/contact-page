@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProfessionalExperience } from '../model/professional.experience';
 import { ApiService } from './api.service';
+import { LoadingService } from './loading.service';
 
 const RESOURCE_NAME = environment.professionalExperienceResource;
 
@@ -11,8 +12,9 @@ const RESOURCE_NAME = environment.professionalExperienceResource;
   providedIn: 'root',
 })
 export class ProfessionalExperienceService extends ApiService<ProfessionalExperience> {
-  constructor(override readonly httpClient: HttpClient) {
-    super(httpClient);
+  constructor(override readonly httpClient: HttpClient,
+    override readonly loadingService: LoadingService) {
+    super(httpClient, loadingService);
   }
 
   get experiences(): Observable<ProfessionalExperience[]> {

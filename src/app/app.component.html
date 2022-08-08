@@ -2,5 +2,19 @@
   <navbar></navbar>
 </header>
 <main>
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="displayComponent$ |async"></router-outlet>
+  <div *ngIf="displayErrors$ |async">
+    <article>
+      <h1>I'm sorry, the site is having technical difficulties.</h1>
+      <h3>Error list:</h3>
+      <ul>
+        <li *ngFor="let error of errors$ | async">
+          {{error.message}}
+        </li>
+      </ul>
+    </article>
+  </div>
+  <div *ngIf="isLoading$ |async">
+    <article aria-busy="true"></article>
+  </div>
 </main>

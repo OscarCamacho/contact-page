@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BasicInfo } from '../model/basic.info';
 import { ApiService } from './api.service';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BasicInfoService extends ApiService<BasicInfo> {
-  constructor(override readonly httpClient: HttpClient) {
-    super(httpClient);
+  constructor(override readonly httpClient: HttpClient, 
+    override readonly loadingService: LoadingService) {
+    super(httpClient, loadingService);
   }
 
   get basicInfo(): Observable<BasicInfo> {
