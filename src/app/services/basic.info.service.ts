@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { BasicInfo } from '../model/basic.info';
 import { ApiService } from './api.service';
 import { LoadingService } from './loading.service';
@@ -15,6 +16,6 @@ export class BasicInfoService extends ApiService<BasicInfo> {
   }
 
   get basicInfo(): Observable<BasicInfo> {
-    return this.getResourceFromApi('basic-info');
+    return this.getResourceFromApi(environment.basicInfoResource);
   }
 }

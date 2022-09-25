@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://localhost:8080/v1/contact-page',
-  basicInfoResource: 'basic-info',
-  professionalExperienceResource: 'experience',
-  skillsEndpoint: 'skills',
+  apiEndpoint: 'https://script.google.com/macros/s/AKfycbzGFu4Bm2kWkWKJyyGdB9n80UVKigOMDi0rMZ9--dhw5XTBDxFvmEPf_8XpulPWaEeF/exec',
+  basicInfoResource: 'Basic',
+  professionalExperienceResource: 'Experiences',
+  skillsEndpoint: 'Skills',
 };
 
 /*

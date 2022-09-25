@@ -11,19 +11,19 @@ export abstract class ApiService<T> {
 
   protected getResourceFromApi(resource: string): Observable<T> {
     return this.manageLoadingState(this.httpClient
-      .get<T>(`${this.API_ENDPOINT}/${resource}`)
+      .get<T>(`${this.API_ENDPOINT}?sheet=${resource}`)
       .pipe(shareReplay(100), catchError(error => this.manageLoadingStateError(error))));
   }
 
   protected getResourceArrayFromApi(resource: string): Observable<T[]> {
     return this.manageLoadingState(this.httpClient
-      .get<T[]>(`${this.API_ENDPOINT}/${resource}`)
+      .get<T[]>(`${this.API_ENDPOINT}?sheet=${resource}`)
       .pipe(shareReplay(100), catchError(error => this.manageLoadingStateError(error))));
   }
 
   protected getGenericResourceFromApi<V>(resource: string) {
     return this.manageLoadingState(this.httpClient
-      .get<V>(`${this.API_ENDPOINT}/${resource}`)
+      .get<V>(`${this.API_ENDPOINT}?sheet=${resource}`)
       .pipe(shareReplay(100), catchError(error => this.manageLoadingStateError(error))));
   }
 
