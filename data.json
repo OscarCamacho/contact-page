@@ -1,0 +1,76 @@
+{
+  "personal": {
+    "name": "Alexandra Blackwood",
+    "title": "Senior Full Stack Developer",
+    "email": "alexandra@example.com",
+    "phone": "+1 (555) 123-4567",
+    "linkedin": "alexandra-blackwood",
+    "github": "alex-blackwood"
+  },
+  "experiences": [
+    {
+      "company": "TechCorp Industries",
+      "position": "Senior Full Stack Developer",
+      "duration": "2022 - Present",
+      "tasks": [
+        "Led development of microservices architecture serving 2M+ users",
+        "Mentored junior developers and established coding standards"
+      ],
+      "skills": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "AWS",
+        "Docker"
+      ]
+    },
+    {
+      "company": "Digital Solutions Ltd",
+      "position": "Full Stack Developer",
+      "duration": "2019 - 2022",
+      "tasks": [
+        "Built responsive web applications using modern frameworks",
+        "Optimized database queries reducing load times by 60%"
+      ],
+      "skills": [
+        "Vue.js",
+        "Python",
+        "MongoDB",
+        "Redis",
+        "Kubernetes"
+      ]
+    },
+    {
+      "company": "StartupXYZ",
+      "position": "Frontend Developer",
+      "duration": "2017 - 2019",
+      "tasks": [
+        "Developed MVP that secured $2M in Series A funding",
+        "Created component library used across 15+ projects"
+      ],
+      "skills": [
+        "JavaScript",
+        "SASS",
+        "Git",
+        "Figma"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Angular",
+      "level": "Expert",
+      "percentage": 90
+    },
+    {
+      "name": "Java",
+      "level": "Expert",
+      "percentage": 90
+    },
+    {
+      "name": "JavaScript",
+      "level": "Expert",
+      "percentage": 90
+    }
+  ]
+}
