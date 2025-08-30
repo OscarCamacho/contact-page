@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #111111;
+            --border: #2a2a2a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #4a9eff;
+            --accent-hover: #66b3ff;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --glow: rgba(74, 158, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0d1117 50%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(74, 158, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 158, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+            background: var(--glow);
+        }
+
+        /* Page Container */
+        .app-container {
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page {
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Home/Splash Page */
+        .splash {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .splash-name {
+            font-family: 'Crimson Text', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(74, 158, 255, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        .splash-title {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 2s forwards;
+        }
+
+        .splash-contact {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 2.5s forwards;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(17, 17, 17, 0.5);
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+
+        .contact-item:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--glow);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .contact-value {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Experience Page */
+        .experience-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(17, 17, 17, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .experience-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .job-duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .job-description li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .job-description li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-chip {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .skill-chip:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--glow);
+            transform: translateY(-1px);
+        }
+
+        /* Skills Page */
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .skills-canvas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(17, 17, 17, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 6px 30px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-level {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+            box-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .splash-name {
+                font-size: 2.5rem;
+            }
+
+            .splash-contact {
+                gap: 1rem;
+            }
+
+            .contact-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
+
+            .experience-container, .skills-container {
+                padding: 2rem 1rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Loading state */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            animation: spin 1s linear infinite;
+            color: var(--accent);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div x-data="portfolioApp()" x-init="init()">
+        <!-- Navigation -->
+        <nav class="navbar" :class="{ 'hidden': !showNav }">
+            <div class="nav-container">
+                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Portfolio</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'home' }" @click.prevent="setPage('home')">Home</a></li>
+                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'experience' }" @click.prevent="setPage('experience')">Experience</a></li>
+                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'skills' }" @click.prevent="setPage('skills')">Skills</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- App Container -->
+        <div class="app-container">
+            <!-- Loading State -->
+            <div x-show="loading" class="loading">
+                <i class="fas fa-circle-notch"></i>
+                <div>Loading portfolio data...</div>
+            </div>
+
+            <!-- Home/Splash Page -->
+            <div x-show="currentPage === 'home'" class="page">
+                <div class="splash">
+                    <h1 class="splash-name" x-text="personal.name">Alexandra Blackwood</h1>
+                    <div class="splash-title" x-text="personal.title">Senior Full Stack Developer</div>
+                    <div class="splash-contact">
+                        <a href="#" class="contact-item" x-show="personal.email">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value" x-text="personal.email"></div>
+                        </a>
+                        <a href="#" class="contact-item" x-show="personal.phone">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value" x-text="personal.phone"></div>
+                        </a>
+                        <a :href="'https://linkedin.com/in/' + personal.linkedin" target="_blank" class="contact-item" x-show="personal.linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">Profile</div>
+                        </a>
+                        <a :href="'https://github.com/' + personal.github" target="_blank" class="contact-item" x-show="personal.github">
+                            <i class="fab fa-github"></i>
+                            <div class="contact-label">GitHub</div>
+                            <div class="contact-value">Repository</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Page -->
+            <div x-show="currentPage === 'experience'" class="page">
+                <div class="experience-container">
+                    <h1 class="page-title">Professional Experience</h1>
+                    <template x-for="(job, index) in experience" :key="index">
+                        <div class="experience-item visible">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="job-title" x-text="job.position"></div>
+                                    <div class="company-name" x-text="job.company"></div>
+                                </div>
+                                <div class="job-duration" x-text="job.duration"></div>
+                            </div>
+                            <ul class="job-description">
+                                <template x-for="task in job.tasks" :key="task">
+                                    <li x-text="task"></li>
+                                </template>
+                            </ul>
+                            <div class="skill-chips">
+                                <template x-for="skill in job.skills" :key="skill">
+                                    <a href="#" class="skill-chip" x-text="skill" @click.prevent="goToSkill(skill)"></a>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Skills Page -->
+            <div x-show="currentPage === 'skills'" class="page">
+                <div class="skills-container">
+                    <h1 class="page-title">Technical Skills</h1>
+                    <div class="skills-canvas">
+                        <template x-for="[skillName, skillData] in Object.entries(skills)" :key="skillName">
+                            <div class="skill-item" :id="'skill-' + skillName.toLowerCase().replace(/\s+/g, '-')">
+                                <div class="skill-name">
+                                    <i class="fas fa-code"></i>
+                                    <span x-text="skillName"></span>
+                                </div>
+                                <div class="skill-level" x-text="skillData.level"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" 
+                                         :style="`width: ${skillData.percentage}%`"
+                                         x-intersect="$el.style.width = $el.style.width"></div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function portfolioApp() {
+            return {
+                loading: true,
+                currentPage: 'home',
+                showNav: false,
+                personal: {},
+                experience: [],
+                skills: {},
+
+                async init() {
+                    await this.loadData();
+                    this.loading = false;
+                    setTimeout(() => {
+                        this.showNav = true;
+                    }, 3000); // Show nav after splash animations
+                },
+
+                async loadData() {
+                    try {
+                        // Simulate loading
+                        await this.delay(1000);
+                        
+                        this.personal = {
+                            name: "Alexandra Blackwood",
+                            title: "Senior Full Stack Developer",
+                            email: "alexandra@example.com",
+                            phone: "+1 (555) 123-4567",
+                            linkedin: "alexandra-blackwood",
+                            github: "alex-blackwood"
+                        };
+
+                        this.experience = [
+                            {
+                                company: "TechCorp Industries",
+                                position: "Senior Full Stack Developer",
+                                duration: "2022 - Present",
+                                tasks: [
+                                    "Led development of microservices architecture serving 2M+ users",
+                                    "Mentored junior developers and established coding standards"
+                                ],
+                                skills: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
+                            },
+                            {
+                                company: "Digital Solutions Ltd",
+                                position: "Full Stack Developer",
+                                duration: "2019 - 2022",
+                                tasks: [
+                                    "Built responsive web applications using modern frameworks",
+                                    "Optimized database queries reducing load times by 60%"
+                                ],
+                                skills: ["Vue.js", "Python", "MongoDB", "Redis", "Kubernetes"]
+                            },
+                            {
+                                company: "StartupXYZ",
+                                position: "Frontend Developer",
+                                duration: "2017 - 2019",
+                                tasks: [
+                                    "Developed MVP that secured $2M in Series A funding",
+                                    "Created component library used across 15+ projects"
+                                ],
+                                skills: ["JavaScript", "SASS", "Git", "Figma"]
+                            }
+                        ];
+
+                        this.skills = {
+                            "React": { level: "Expert", percentage: 90 },
+                            "Node.js": { level: "Expert", percentage: 90 },
+                            "JavaScript": { level: "Expert", percentage: 90 },
+                            "TypeScript": { level: "Advanced", percentage: 60 },
+                            "Python": { level: "Advanced", percentage: 60 },
+                            "Vue.js": { level: "Advanced", percentage: 60 },
+                            "PostgreSQL": { level: "Advanced", percentage: 60 },
+                            "AWS": { level: "Advanced", percentage: 60 },
+                            "Docker": { level: "Advanced", percentage: 60 },
+                            "MongoDB": { level: "Novice", percentage: 30 },
+                            "Redis": { level: "Novice", percentage: 30 },
+                            "Kubernetes": { level: "Novice", percentage: 30 },
+                            "SASS": { level: "Advanced", percentage: 60 },
+                            "Git": { level: "Expert", percentage: 90 },
+                            "Figma": { level: "Advanced", percentage: 60 }
+                        };
+
+                    } catch (error) {
+                        console.error('Failed to load portfolio data:', error);
+                        this.loading = false;
+                    }
+                },
+
+                setPage(page) {
+                    this.currentPage = page;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+
+                goToSkill(skillName) {
+                    this.setPage('skills');
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            const element = document.getElementById('skill-' + skillName.toLowerCase().replace(/\s+/g, '-'));
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                element.style.borderColor = 'var(--accent)';
+                                element.style.boxShadow = '0 0 20px rgba(74, 158, 255, 0.3)';
+                                setTimeout(() => {
+                                    element.style.borderColor = '';
+                                    element.style.boxShadow = '';
+                                }, 2000);
+                            }
+                        }, 300);
+                    });
+                },
+
+                initScrollAnimations() {
+                    // Scroll animations are handled by x-intersect in the template
+                },
+
+                delay(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+            }
+        }
+    </script>
+</body>
+</html>
