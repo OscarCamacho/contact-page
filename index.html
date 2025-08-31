@@ -65,7 +65,7 @@
             <div x-show="currentPage === 'experience'" class="page">
                 <div class="experience-container">
                     <h1 class="page-title">Professional Experience</h1>
-                    <template x-for="(job, index) in experience" :key="index">
+                    <template x-for="(job, index) in experiences" :key="index">
                         <div class="experience-item visible">
                             <div class="experience-header">
                                 <div>
@@ -118,10 +118,11 @@
         function portfolioApp() {
             return {
                 loading: true,
+                error: false,
                 currentPage: 'home',
                 showNav: false,
                 personal: {},
-                experience: [],
+                experiences: [],
                 skills: {},
 
                 async init() {
@@ -132,74 +133,18 @@
                     }, 3000); // Show nav after splash animations
                 },
 
-                async loadData() {
-                    try {
-                        // Simulate loading
-                        await this.delay(1000);
-                        
-                        this.personal = {
-                            name: "Alexandra Blackwood",
-                            title: "Senior Full Stack Developer",
-                            email: "alexandra@example.com",
-                            phone: "+1 (555) 123-4567",
-                            linkedin: "alexandra-blackwood",
-                            github: "alex-blackwood"
-                        };
+                loadData() {
+                    return fetch("https://raw.githubusercontent.com/OscarCamacho/contact-page/refs/heads/master/data.json")
+                        .then(res => this.setData(res))
+                        .catch(err => this.handleDataLoadError(err));
+                },
 
-                        this.experience = [
-                            {
-                                company: "TechCorp Industries",
-                                position: "Senior Full Stack Developer",
-                                duration: "2022 - Present",
-                                tasks: [
-                                    "Led development of microservices architecture serving 2M+ users",
-                                    "Mentored junior developers and established coding standards"
-                                ],
-                                skills: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
-                            },
-                            {
-                                company: "Digital Solutions Ltd",
-                                position: "Full Stack Developer",
-                                duration: "2019 - 2022",
-                                tasks: [
-                                    "Built responsive web applications using modern frameworks",
-                                    "Optimized database queries reducing load times by 60%"
-                                ],
-                                skills: ["Vue.js", "Python", "MongoDB", "Redis", "Kubernetes"]
-                            },
-                            {
-                                company: "StartupXYZ",
-                                position: "Frontend Developer",
-                                duration: "2017 - 2019",
-                                tasks: [
-                                    "Developed MVP that secured $2M in Series A funding",
-                                    "Created component library used across 15+ projects"
-                                ],
-                                skills: ["JavaScript", "SASS", "Git", "Figma"]
-                            }
-                        ];
-
-                        this.skills = {
-                            "React": { level: "Expert", percentage: 90 },
-                            "Node.js": { level: "Expert", percentage: 90 },
-                            "JavaScript": { level: "Expert", percentage: 90 },
-                            "TypeScript": { level: "Advanced", percentage: 60 },
-                            "Python": { level: "Advanced", percentage: 60 },
-                            "Vue.js": { level: "Advanced", percentage: 60 },
-                            "PostgreSQL": { level: "Advanced", percentage: 60 },
-                            "AWS": { level: "Advanced", percentage: 60 },
-                            "Docker": { level: "Advanced", percentage: 60 },
-                            "MongoDB": { level: "Novice", percentage: 30 },
-                            "Redis": { level: "Novice", percentage: 30 },
-                            "Kubernetes": { level: "Novice", percentage: 30 },
-                            "SASS": { level: "Advanced", percentage: 60 },
-                            "Git": { level: "Expert", percentage: 90 },
-                            "Figma": { level: "Advanced", percentage: 60 }
-                        };
-
-                    } catch (error) {
-                        console.error('Failed to load portfolio data:', error);
-                        this.loading = false;
+                async setData(data) {
+                    const jsonData = await data.json();
+                    if (jsonData) {
+                        if (jsonData.personal) this.personal = jsonData.personal;
+                        if (jsonData.experiences) this.experiences = jsonData.experiences;
+                        if (jsonData.skills) this.skills = jsonData.skills;
                     }
                 },
 
@@ -225,14 +170,6 @@
                         }, 300);
                     });
                 },
-
-                initScrollAnimations() {
-                    // Scroll animations are handled by x-intersect in the template
-                },
-
-                delay(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                }
             }
         }
     </script>
