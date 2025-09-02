@@ -1,58 +1,181 @@
 {
   "personal": {
-    "name": "Alexandra Blackwood",
-    "title": "Senior Full Stack Developer",
-    "email": "alexandra@example.com",
-    "phone": "+1 (555) 123-4567",
-    "linkedin": "alexandra-blackwood",
-    "github": "alex-blackwood"
+    "name": "Oscar U. Camacho Hernandez",
+    "title": "Senior Software Engineer",
+    "email": "oscar.u.camacho.hernandez@gmail.com",
+    "phone": "+52 56 1172 5179",
+    "linkedin": "oscar-u-camacho",
+    "github": "OscarCamacho"
   },
   "experiences": [
     {
-      "company": "TechCorp Industries",
-      "position": "Senior Full Stack Developer",
-      "duration": "2022 - Present",
+      "company": "Netflix",
+      "position": "Senior Software Engineer L4",
+      "startDate": "2022/01/16",
+      "endDate": "2025/03/05",
       "tasks": [
-        "Led development of microservices architecture serving 2M+ users",
-        "Mentored junior developers and established coding standards"
+        "Collaborated as a backend developer for a business critical application built with Spring",
+        "Designed and implemented key functionality supporting the asynchronous communication of multiple backend systems",
+        "Collaborated as a tester for several experimental features company wide."
       ],
       "skills": [
-        "React",
-        "Node.js",
+        "Java",
+        "Spring Boot",
         "PostgreSQL",
         "AWS",
-        "Docker"
+        "Docker",
+        "jUnit",
+        "Gradle",
+        "GraphQL",
+        "Kafka",
+        "Git"
       ]
     },
     {
-      "company": "Digital Solutions Ltd",
-      "position": "Full Stack Developer",
-      "duration": "2019 - 2022",
+      "company": "EPAM Systems",
+      "position": "Lead Software Engineer",
+      "startDate":  "2022/02/01",
+      "endDate": "2022/12/01",
       "tasks": [
-        "Built responsive web applications using modern frameworks",
-        "Optimized database queries reducing load times by 60%"
+        "Lead a cross functional team composed of 4 developers, 1 tester, and 2 dotted line reports",
+        "Key designer of microservices",
+        "Key developer in a Health Care industry project",
+        "Speaker at EPAM's October 2022 Tech talk",
+        "Internal lead for several growth initiatives"
       ],
       "skills": [
-        "Vue.js",
-        "Python",
-        "MongoDB",
-        "Redis",
-        "Kubernetes"
+        "Java",
+        "Spring",
+        "Azure",
+        "jUnit",
+        "Leadership",
+        "Mentoring",
+        "Scrum",
+        "Test Driven Development (TDD)",
+        "Cosmos DB",
+        "Mockito",
+        "Git"
       ]
     },
     {
-      "company": "StartupXYZ",
-      "position": "Frontend Developer",
-      "duration": "2017 - 2019",
+      "company": "EPAM Systems",
+      "position": "Senior Software Engineer",
+      "startDate": "2020/09/16",
+      "endDate": "2022/02/01",
       "tasks": [
-        "Developed MVP that secured $2M in Series A funding",
-        "Created component library used across 15+ projects"
+        "Key developer working at the customer account for a web search engine",
+        "Mentor for several internal growth programs",
+        "Lead instructor for the program 'Introduction to JavaScript programing'",
+        "Technical interviewer",
+        "Collaborated in the human resource management for a team of 5 engineers."
       ],
       "skills": [
+        "Java",
+        "Guice",
+        "gRPC",
+        "Angular",
         "JavaScript",
-        "SASS",
+        "TypeScript",
+        "Google Cloud Platform",
+        "Google CloudSQL",
+        "Bazel"
+      ]
+    },
+    {
+      "company": "Wipro Technologies",
+      "position": "Software Engineer",
+      "startDate": "2019/10/01",
+      "endDate": "2020/08/01",
+      "tasks": [
+        "Key developer for the Citibanamex customer account",
+        "Designed and implemented a code styleguide to increase code quality",
+        "Collaborated as an engineering cell lead",
+        "Spearheaded user stories refinement",
+        "Key collaborator generating reliable documentation of a monolithic web application"
+      ],
+      "skills": [
+        "Java",
+        "Spring MVC",
+        "REST",
+        "AngularJS",
+        "JavaScript",
+        "MongoDB",
+        "Git"
+      ]
+    },
+    {
+      "company": "Allutiq LLC",
+      "position": "Java Developer",
+      "startDate": "2019/05/01",
+      "endDate": "2019/09/01",
+      "tasks": [
+        "Key developer for a cross country inmigration law enforcement system",
+        "Designed and implemented a loosely coupled module for data visualization",
+        "Designed and implemented a micro frontend system",
+        "Designed and implemented a JWT authentication microservice",
+        "Generated extensive documentation for the main product"
+      ],
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "REST",
+        "Angular",
+        "ExpressJS",
+        "Amazon Web Services",
+        "JavaScript",
+        "TypeScript",
         "Git",
-        "Figma"
+        "Jenkins",
+        "Docker",
+        "Scrum"
+      ]
+    },
+    {
+      "company": "Xideral",
+      "position": "Java Jr Consultant",
+      "startDate": "2018/06/01",
+      "endDate": "2019/05/01",
+      "tasks": [
+        "Key developer for the AT&T Mexico customer account",
+        "Developed complex data mining queries to support the generation of analytics reports.",
+        "Lead the team effort for user support L1, L2 and L3",
+        "Developed, maintained and implemented over 50 dynamic forms used to retrieve work evidences for contractors",
+        "Collaborated in the migration from a monolithic application into a microservices suite for a business critical application",
+        "Collaborated in the creation of a multi-platform mobile first application"
+      ],
+      "skills": [
+        "Java",
+        "Spring MVC",
+        "Spring Boot",
+        "REST",
+        "Angular",
+        "React",
+        "Ionic",
+        "Scrum",
+        "JavaScript",
+        "MongoDB",
+        "Git",
+        "MS SQL Server"
+      ]
+    },
+    {
+      "company": "Praxis",
+      "position": "Java Developer Intern",
+      "startDate": "2017/03/06",
+      "endDate": "2018/06/01",
+      "tasks": [
+        "Key developer for an in-house built financial system for integrating with Banxico's SPEI/SPID system",
+        "Lead cross company development between Praxis and ICBC",
+        "Created a tool for automating "
+      ],
+      "skills": [
+        "Java",
+        "Spring MVC",
+        "REST",
+        "AngularJS",
+        "JavaScript",
+        "MongoDB",
+        "Git"
       ]
     }
   ],
