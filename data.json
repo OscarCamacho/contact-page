@@ -14,9 +14,9 @@
       "startDate": "2022/01/16",
       "endDate": "2025/03/05",
       "tasks": [
-        "Collaborated as a backend developer for a business critical application built with Spring",
-        "Designed and implemented key functionality supporting the asynchronous communication of multiple backend systems",
-        "Collaborated as a tester for several experimental features company wide."
+        "Developed backend services for a critical business application using Spring Boot.",
+        "Designed and implemented asynchronous communication across distributed systems.",
+        "Contributed to testing and evaluation of experimental features at scale."
       ],
       "skills": [
         "Java",
@@ -34,14 +34,13 @@
     {
       "company": "EPAM Systems",
       "position": "Lead Software Engineer",
-      "startDate":  "2022/02/01",
+      "startDate": "2022/02/01",
       "endDate": "2022/12/01",
       "tasks": [
-        "Lead a cross functional team composed of 4 developers, 1 tester, and 2 dotted line reports",
-        "Key designer of microservices",
-        "Key developer in a Health Care industry project",
-        "Speaker at EPAM's October 2022 Tech talk",
-        "Internal lead for several growth initiatives"
+        "Led a cross-functional team of 7, including developers and QA.",
+        "Architected and implemented microservices for a healthcare platform.",
+        "Delivered a talk at EPAM Tech Talk (Oct 2022).",
+        "Led multiple internal growth and mentoring initiatives."
       ],
       "skills": [
         "Java",
@@ -63,11 +62,11 @@
       "startDate": "2020/09/16",
       "endDate": "2022/02/01",
       "tasks": [
-        "Key developer working at the customer account for a web search engine",
-        "Mentor for several internal growth programs",
-        "Lead instructor for the program 'Introduction to JavaScript programing'",
-        "Technical interviewer",
-        "Collaborated in the human resource management for a team of 5 engineers."
+        "Developed scalable backend services for a leading web search engine client.",
+        "Mentored engineers through internal growth programs.",
+        "Led and taught 'Introduction to JavaScript Programming' course.",
+        "Conducted technical interviews and performance evaluations.",
+        "Assisted in team management and HR coordination for 5 engineers."
       ],
       "skills": [
         "Java",
@@ -87,11 +86,10 @@
       "startDate": "2019/10/01",
       "endDate": "2020/08/01",
       "tasks": [
-        "Key developer for the Citibanamex customer account",
-        "Designed and implemented a code styleguide to increase code quality",
-        "Collaborated as an engineering cell lead",
-        "Spearheaded user stories refinement",
-        "Key collaborator generating reliable documentation of a monolithic web application"
+        "Delivered backend features for the Citibanamex account.",
+        "Created and enforced a coding style guide to improve code quality.",
+        "Led an engineering cell and refined user stories.",
+        "Produced technical documentation for a monolithic application."
       ],
       "skills": [
         "Java",
@@ -109,11 +107,10 @@
       "startDate": "2019/05/01",
       "endDate": "2019/09/01",
       "tasks": [
-        "Key developer for a cross country inmigration law enforcement system",
-        "Designed and implemented a loosely coupled module for data visualization",
-        "Designed and implemented a micro frontend system",
-        "Designed and implemented a JWT authentication microservice",
-        "Generated extensive documentation for the main product"
+        "Built a law enforcement system for immigration tracking across regions.",
+        "Developed a modular data visualization tool.",
+        "Implemented a micro frontend architecture and JWT authentication service.",
+        "Documented system architecture and APIs."
       ],
       "skills": [
         "Java",
@@ -136,12 +133,12 @@
       "startDate": "2018/06/01",
       "endDate": "2019/05/01",
       "tasks": [
-        "Key developer for the AT&T Mexico customer account",
-        "Developed complex data mining queries to support the generation of analytics reports.",
-        "Lead the team effort for user support L1, L2 and L3",
-        "Developed, maintained and implemented over 50 dynamic forms used to retrieve work evidences for contractors",
-        "Collaborated in the migration from a monolithic application into a microservices suite for a business critical application",
-        "Collaborated in the creation of a multi-platform mobile first application"
+        "Developed solutions for the AT&T Mexico account.",
+        "Created advanced data queries for analytics reporting.",
+        "Led user support operations across L1, L2, and L3.",
+        "Built and maintained over 50 dynamic data entry forms.",
+        "Supported migration from monolith to microservices.",
+        "Contributed to a mobile-first, cross-platform application."
       ],
       "skills": [
         "Java",
@@ -164,26 +161,107 @@
       "startDate": "2017/03/06",
       "endDate": "2018/06/01",
       "tasks": [
-        "Key developer for an in-house built financial system for integrating with Banxico's SPEI/SPID system",
-        "Lead cross company development between Praxis and ICBC",
-        "Created a tool for automating "
+        "Developed a financial system integrated with Banxico's SPEI/SPID.",
+        "Led joint development efforts between Praxis and ICBC.",
+        "Built automation tools that reduced costs and processing time.",
+        "Provided customer support at L2 and L3 levels."
       ],
       "skills": [
         "Java",
-        "Spring MVC",
-        "REST",
-        "AngularJS",
+        "Java EE",
+        "JSP",
+        "WebLogic",
+        "jBoss",
         "JavaScript",
-        "MongoDB",
-        "Git"
+        "MS SQL Server"
       ]
     }
   ],
   "skills": [
     {
+      "name": "Analytics & Reporting",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
       "name": "Angular",
       "level": "Expert",
       "percentage": 90
+    },
+    {
+      "name": "Asynchronous Systems",
+      "level": "Intermediate",
+      "percentage": 75
+    },
+    {
+      "name": "AWS",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Azure",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Bazel",
+      "level": "Intermediate",
+      "percentage": 60
+    },
+    {
+      "name": "Collaboration",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Code Quality / Style Guides",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Cosmos DB",
+      "level": "Intermediate",
+      "percentage": 60
+    },
+    {
+      "name": "Cross-functional Teams",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Data Visualization",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Docker",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Documentation",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Google Cloud Platform",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "GraphQL",
+      "level": "Intermediate",
+      "percentage": 65
+    },
+    {
+      "name": "gRPC",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Guice",
+      "level": "Intermediate",
+      "percentage": 65
     },
     {
       "name": "Java",
@@ -194,6 +272,106 @@
       "name": "JavaScript",
       "level": "Expert",
       "percentage": 90
+    },
+    {
+      "name": "Jenkins",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "JWT Authentication",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Kafka",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Leadership",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Mentoring",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Micro Frontends",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Microservices",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "MongoDB",
+      "level": "Intermediate",
+      "percentage": 75
+    },
+    {
+      "name": "Monolithic to Microservices Migration",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "MS SQL Server",
+      "level": "Intermediate",
+      "percentage": 65
+    },
+    {
+      "name": "PostgreSQL",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Public Speaking",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Scrum",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Soft Skills",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Spring Boot",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Spring MVC",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Technical Documentation",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Technical Interviewing",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Test Driven Development (TDD)",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "User Support (L1/L2/L3)",
+      "level": "Advanced",
+      "percentage": 85
     }
   ]
 }
