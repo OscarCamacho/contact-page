@@ -1,66 +1,267 @@
 {
   "personal": {
-    "name": "Alexandra Blackwood",
-    "title": "Senior Full Stack Developer",
-    "email": "alexandra@example.com",
-    "phone": "+1 (555) 123-4567",
-    "linkedin": "alexandra-blackwood",
-    "github": "alex-blackwood"
+    "name": "Oscar U. Camacho Hernandez",
+    "title": "Senior Software Engineer",
+    "email": "oscar.u.camacho.hernandez@gmail.com",
+    "phone": "+52 56 1172 5179",
+    "linkedin": "oscar-u-camacho",
+    "github": "OscarCamacho"
   },
   "experiences": [
     {
-      "company": "TechCorp Industries",
-      "position": "Senior Full Stack Developer",
-      "duration": "2022 - Present",
+      "company": "Netflix",
+      "position": "Senior Software Engineer L4",
+      "startDate": "2022/01/16",
+      "endDate": "2025/03/05",
       "tasks": [
-        "Led development of microservices architecture serving 2M+ users",
-        "Mentored junior developers and established coding standards"
+        "Developed backend services for a critical business application using Spring Boot.",
+        "Designed and implemented asynchronous communication across distributed systems.",
+        "Contributed to testing and evaluation of experimental features at scale."
       ],
       "skills": [
-        "React",
-        "Node.js",
+        "Java",
+        "Spring Boot",
         "PostgreSQL",
         "AWS",
-        "Docker"
+        "Docker",
+        "jUnit",
+        "Gradle",
+        "GraphQL",
+        "Kafka",
+        "Git"
       ]
     },
     {
-      "company": "Digital Solutions Ltd",
-      "position": "Full Stack Developer",
-      "duration": "2019 - 2022",
+      "company": "EPAM Systems",
+      "position": "Lead Software Engineer",
+      "startDate": "2022/02/01",
+      "endDate": "2022/12/01",
       "tasks": [
-        "Built responsive web applications using modern frameworks",
-        "Optimized database queries reducing load times by 60%"
+        "Led a cross-functional team of 7, including developers and QA.",
+        "Architected and implemented microservices for a healthcare platform.",
+        "Delivered a talk at EPAM Tech Talk (Oct 2022).",
+        "Led multiple internal growth and mentoring initiatives."
       ],
       "skills": [
-        "Vue.js",
-        "Python",
-        "MongoDB",
-        "Redis",
-        "Kubernetes"
+        "Java",
+        "Spring",
+        "Azure",
+        "jUnit",
+        "Leadership",
+        "Mentoring",
+        "Scrum",
+        "Test Driven Development (TDD)",
+        "Cosmos DB",
+        "Mockito",
+        "Git"
       ]
     },
     {
-      "company": "StartupXYZ",
-      "position": "Frontend Developer",
-      "duration": "2017 - 2019",
+      "company": "EPAM Systems",
+      "position": "Senior Software Engineer",
+      "startDate": "2020/09/16",
+      "endDate": "2022/02/01",
       "tasks": [
-        "Developed MVP that secured $2M in Series A funding",
-        "Created component library used across 15+ projects"
+        "Developed scalable backend services for a leading web search engine client.",
+        "Mentored engineers through internal growth programs.",
+        "Led and taught 'Introduction to JavaScript Programming' course.",
+        "Conducted technical interviews and performance evaluations.",
+        "Assisted in team management and HR coordination for 5 engineers."
       ],
       "skills": [
+        "Java",
+        "Guice",
+        "gRPC",
+        "Angular",
         "JavaScript",
-        "SASS",
+        "TypeScript",
+        "Google Cloud Platform",
+        "Google CloudSQL",
+        "Bazel"
+      ]
+    },
+    {
+      "company": "Wipro Technologies",
+      "position": "Software Engineer",
+      "startDate": "2019/10/01",
+      "endDate": "2020/08/01",
+      "tasks": [
+        "Delivered backend features for the Citibanamex account.",
+        "Created and enforced a coding style guide to improve code quality.",
+        "Led an engineering cell and refined user stories.",
+        "Produced technical documentation for a monolithic application."
+      ],
+      "skills": [
+        "Java",
+        "Spring MVC",
+        "REST",
+        "AngularJS",
+        "JavaScript",
+        "MongoDB",
+        "Git"
+      ]
+    },
+    {
+      "company": "Allutiq LLC",
+      "position": "Java Developer",
+      "startDate": "2019/05/01",
+      "endDate": "2019/09/01",
+      "tasks": [
+        "Built a law enforcement system for immigration tracking across regions.",
+        "Developed a modular data visualization tool.",
+        "Implemented a micro frontend architecture and JWT authentication service.",
+        "Documented system architecture and APIs."
+      ],
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "REST",
+        "Angular",
+        "ExpressJS",
+        "Amazon Web Services",
+        "JavaScript",
+        "TypeScript",
         "Git",
-        "Figma"
+        "Jenkins",
+        "Docker",
+        "Scrum"
+      ]
+    },
+    {
+      "company": "Xideral",
+      "position": "Java Jr Consultant",
+      "startDate": "2018/06/01",
+      "endDate": "2019/05/01",
+      "tasks": [
+        "Developed solutions for the AT&T Mexico account.",
+        "Created advanced data queries for analytics reporting.",
+        "Led user support operations across L1, L2, and L3.",
+        "Built and maintained over 50 dynamic data entry forms.",
+        "Supported migration from monolith to microservices.",
+        "Contributed to a mobile-first, cross-platform application."
+      ],
+      "skills": [
+        "Java",
+        "Spring MVC",
+        "Spring Boot",
+        "REST",
+        "Angular",
+        "React",
+        "Ionic",
+        "Scrum",
+        "JavaScript",
+        "MongoDB",
+        "Git",
+        "MS SQL Server"
+      ]
+    },
+    {
+      "company": "Praxis",
+      "position": "Java Developer Intern",
+      "startDate": "2017/03/06",
+      "endDate": "2018/06/01",
+      "tasks": [
+        "Developed a financial system integrated with Banxico's SPEI/SPID.",
+        "Led joint development efforts between Praxis and ICBC.",
+        "Built automation tools that reduced costs and processing time.",
+        "Provided customer support at L2 and L3 levels."
+      ],
+      "skills": [
+        "Java",
+        "Java EE",
+        "JSP",
+        "WebLogic",
+        "jBoss",
+        "JavaScript",
+        "MS SQL Server"
       ]
     }
   ],
   "skills": [
     {
+      "name": "Analytics & Reporting",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
       "name": "Angular",
       "level": "Expert",
       "percentage": 90
+    },
+    {
+      "name": "Asynchronous Systems",
+      "level": "Intermediate",
+      "percentage": 75
+    },
+    {
+      "name": "AWS",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Azure",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Bazel",
+      "level": "Intermediate",
+      "percentage": 60
+    },
+    {
+      "name": "Collaboration",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Code Quality / Style Guides",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Cosmos DB",
+      "level": "Intermediate",
+      "percentage": 60
+    },
+    {
+      "name": "Cross-functional Teams",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Data Visualization",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Docker",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Documentation",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Google Cloud Platform",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "GraphQL",
+      "level": "Intermediate",
+      "percentage": 65
+    },
+    {
+      "name": "gRPC",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Guice",
+      "level": "Intermediate",
+      "percentage": 65
     },
     {
       "name": "Java",
@@ -71,6 +272,106 @@
       "name": "JavaScript",
       "level": "Expert",
       "percentage": 90
+    },
+    {
+      "name": "Jenkins",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "JWT Authentication",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Kafka",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Leadership",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Mentoring",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Micro Frontends",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Microservices",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "MongoDB",
+      "level": "Intermediate",
+      "percentage": 75
+    },
+    {
+      "name": "Monolithic to Microservices Migration",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "MS SQL Server",
+      "level": "Intermediate",
+      "percentage": 65
+    },
+    {
+      "name": "PostgreSQL",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Public Speaking",
+      "level": "Intermediate",
+      "percentage": 70
+    },
+    {
+      "name": "Scrum",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Soft Skills",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Spring Boot",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Spring MVC",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Technical Documentation",
+      "level": "Advanced",
+      "percentage": 85
+    },
+    {
+      "name": "Technical Interviewing",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "Test Driven Development (TDD)",
+      "level": "Advanced",
+      "percentage": 80
+    },
+    {
+      "name": "User Support (L1/L2/L3)",
+      "level": "Advanced",
+      "percentage": 85
     }
   ]
 }

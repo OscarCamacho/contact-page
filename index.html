@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Oscar Camacho's CV</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
         <!-- Navigation -->
         <nav class="navbar" :class="{ 'hidden': !showNav }">
             <div class="nav-container">
-                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Portfolio</a>
+                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Oscar Camacho</a>
                 <ul class="nav-links">
                     <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'home' }" @click.prevent="setPage('home')">Home</a></li>
                     <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'experience' }" @click.prevent="setPage('experience')">Experience</a></li>
@@ -65,14 +65,14 @@
             <div x-show="currentPage === 'experience'" class="page">
                 <div class="experience-container">
                     <h1 class="page-title">Professional Experience</h1>
-                    <template x-for="(job, index) in experience" :key="index">
+                    <template x-for="(job, index) in experiences" :key="index">
                         <div class="experience-item visible">
                             <div class="experience-header">
                                 <div>
                                     <div class="job-title" x-text="job.position"></div>
                                     <div class="company-name" x-text="job.company"></div>
                                 </div>
-                                <div class="job-duration" x-text="job.duration"></div>
+                                <div class="job-duration" x-text="getExperienceDuration(job)"></div>
                             </div>
                             <ul class="job-description">
                                 <template x-for="task in job.tasks" :key="task">
@@ -94,16 +94,16 @@
                 <div class="skills-container">
                     <h1 class="page-title">Technical Skills</h1>
                     <div class="skills-canvas">
-                        <template x-for="[skillName, skillData] in Object.entries(skills)" :key="skillName">
-                            <div class="skill-item" :id="'skill-' + skillName.toLowerCase().replace(/\s+/g, '-')">
+                        <template x-for="skill in skills" :key="skill.name">
+                            <div class="skill-item" :id="'skill-' + skill.name.toLowerCase().replace(/\s+/g, '-')">
                                 <div class="skill-name">
                                     <i class="fas fa-code"></i>
-                                    <span x-text="skillName"></span>
+                                    <span x-text="skill.name"></span>
                                 </div>
-                                <div class="skill-level" x-text="skillData.level"></div>
+                                <div class="skill-level" x-text="skill.level"></div>
                                 <div class="progress-bar">
-                                    <div class="progress-fill" 
-                                         :style="`width: ${skillData.percentage}%`"
+                                    <div class="progress-fill"
+                                         :style="`width: ${skill.percentage}%`"
                                          x-intersect="$el.style.width = $el.style.width"></div>
                                 </div>
                             </div>
@@ -113,15 +113,15 @@
             </div>
         </div>
     </div>
-
     <script>
         function portfolioApp() {
             return {
                 loading: true,
+                error: false,
                 currentPage: 'home',
                 showNav: false,
                 personal: {},
-                experience: [],
+                experiences: [],
                 skills: {},
 
                 async init() {
@@ -132,80 +132,30 @@
                     }, 3000); // Show nav after splash animations
                 },
 
-                async loadData() {
-                    try {
-                        // Simulate loading
-                        await this.delay(1000);
-                        
-                        this.personal = {
-                            name: "Alexandra Blackwood",
-                            title: "Senior Full Stack Developer",
-                            email: "alexandra@example.com",
-                            phone: "+1 (555) 123-4567",
-                            linkedin: "alexandra-blackwood",
-                            github: "alex-blackwood"
-                        };
-
-                        this.experience = [
-                            {
-                                company: "TechCorp Industries",
-                                position: "Senior Full Stack Developer",
-                                duration: "2022 - Present",
-                                tasks: [
-                                    "Led development of microservices architecture serving 2M+ users",
-                                    "Mentored junior developers and established coding standards"
-                                ],
-                                skills: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
-                            },
-                            {
-                                company: "Digital Solutions Ltd",
-                                position: "Full Stack Developer",
-                                duration: "2019 - 2022",
-                                tasks: [
-                                    "Built responsive web applications using modern frameworks",
-                                    "Optimized database queries reducing load times by 60%"
-                                ],
-                                skills: ["Vue.js", "Python", "MongoDB", "Redis", "Kubernetes"]
-                            },
-                            {
-                                company: "StartupXYZ",
-                                position: "Frontend Developer",
-                                duration: "2017 - 2019",
-                                tasks: [
-                                    "Developed MVP that secured $2M in Series A funding",
-                                    "Created component library used across 15+ projects"
-                                ],
-                                skills: ["JavaScript", "SASS", "Git", "Figma"]
-                            }
-                        ];
-
-                        this.skills = {
-                            "React": { level: "Expert", percentage: 90 },
-                            "Node.js": { level: "Expert", percentage: 90 },
-                            "JavaScript": { level: "Expert", percentage: 90 },
-                            "TypeScript": { level: "Advanced", percentage: 60 },
-                            "Python": { level: "Advanced", percentage: 60 },
-                            "Vue.js": { level: "Advanced", percentage: 60 },
-                            "PostgreSQL": { level: "Advanced", percentage: 60 },
-                            "AWS": { level: "Advanced", percentage: 60 },
-                            "Docker": { level: "Advanced", percentage: 60 },
-                            "MongoDB": { level: "Novice", percentage: 30 },
-                            "Redis": { level: "Novice", percentage: 30 },
-                            "Kubernetes": { level: "Novice", percentage: 30 },
-                            "SASS": { level: "Advanced", percentage: 60 },
-                            "Git": { level: "Expert", percentage: 90 },
-                            "Figma": { level: "Advanced", percentage: 60 }
-                        };
-
-                    } catch (error) {
-                        console.error('Failed to load portfolio data:', error);
-                        this.loading = false;
-                    }
+                loadData() {
+                    return fetch("https://raw.githubusercontent.com/OscarCamacho/contact-page/refs/heads/master/data.json")
+                        .then(res => res.json())
+                        .then(json => this._setCurriculum(json))
+                        .catch(err => this._handleDataLoadError(err));
                 },
 
                 setPage(page) {
                     this.currentPage = page;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+
+                _setCurriculum(curriculum) {
+                    if (curriculum) {
+                        this.personal = curriculum.personal ? curriculum.personal : undefined;
+                        this.experiences = curriculum.experiences ? curriculum.experiences : undefined;
+                        this.skills = curriculum.skills ? curriculum.skills : undefined;
+                        this.loading = false;
+                    }
+                },
+
+                _handleDataLoadError(err) {
+                    this.loading = false;
+                    this.error = err;
                 },
 
                 goToSkill(skillName) {
@@ -226,12 +176,14 @@
                     });
                 },
 
-                initScrollAnimations() {
-                    // Scroll animations are handled by x-intersect in the template
-                },
-
-                delay(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
+                getExperienceDuration(job) {
+                    console.log('getExperienceDuration', job);
+                    if (job && job.startDate) {
+                        const startDate = new Date(job.startDate).toDateString();
+                        const endDate = job.endDate ? new Date(job.endDate).toDateString() : undefined;
+                        return `${startDate} - ${endDate ? emdDate : "Present"}`;
+                    }
+                    return "";
                 }
             }
         }
