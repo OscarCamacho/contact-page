@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Oscar Camacho's CV</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
         <!-- Navigation -->
         <nav class="navbar" :class="{ 'hidden': !showNav }">
             <div class="nav-container">
-                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Portfolio</a>
+                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Oscar Camacho</a>
                 <ul class="nav-links">
                     <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'home' }" @click.prevent="setPage('home')">Home</a></li>
                     <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'experience' }" @click.prevent="setPage('experience')">Experience</a></li>
@@ -72,7 +72,7 @@
                                     <div class="job-title" x-text="job.position"></div>
                                     <div class="company-name" x-text="job.company"></div>
                                 </div>
-                                <div class="job-duration" x-text="job.duration"></div>
+                                <div class="job-duration" x-text="getExperienceDuration(job)"></div>
                             </div>
                             <ul class="job-description">
                                 <template x-for="task in job.tasks" :key="task">
@@ -94,16 +94,16 @@
                 <div class="skills-container">
                     <h1 class="page-title">Technical Skills</h1>
                     <div class="skills-canvas">
-                        <template x-for="[skillName, skillData] in Object.entries(skills)" :key="skillName">
-                            <div class="skill-item" :id="'skill-' + skillName.toLowerCase().replace(/\s+/g, '-')">
+                        <template x-for="skill in skills" :key="skill.name">
+                            <div class="skill-item" :id="'skill-' + skill.name.toLowerCase().replace(/\s+/g, '-')">
                                 <div class="skill-name">
                                     <i class="fas fa-code"></i>
-                                    <span x-text="skillName"></span>
+                                    <span x-text="skill.name"></span>
                                 </div>
-                                <div class="skill-level" x-text="skillData.level"></div>
+                                <div class="skill-level" x-text="skill.level"></div>
                                 <div class="progress-bar">
-                                    <div class="progress-fill" 
-                                         :style="`width: ${skillData.percentage}%`"
+                                    <div class="progress-fill"
+                                         :style="`width: ${skill.percentage}%`"
                                          x-intersect="$el.style.width = $el.style.width"></div>
                                 </div>
                             </div>
@@ -113,7 +113,6 @@
             </div>
         </div>
     </div>
-
     <script>
         function portfolioApp() {
             return {
@@ -135,22 +134,28 @@
 
                 loadData() {
                     return fetch("https://raw.githubusercontent.com/OscarCamacho/contact-page/refs/heads/master/data.json")
-                        .then(res => this.setData(res))
-                        .catch(err => this.handleDataLoadError(err));
-                },
-
-                async setData(data) {
-                    const jsonData = await data.json();
-                    if (jsonData) {
-                        if (jsonData.personal) this.personal = jsonData.personal;
-                        if (jsonData.experiences) this.experiences = jsonData.experiences;
-                        if (jsonData.skills) this.skills = jsonData.skills;
-                    }
+                        .then(res => res.json())
+                        .then(json => this._setCurriculum(json))
+                        .catch(err => this._handleDataLoadError(err));
                 },
 
                 setPage(page) {
                     this.currentPage = page;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+
+                _setCurriculum(curriculum) {
+                    if (curriculum) {
+                        this.personal = curriculum.personal ? curriculum.personal : undefined;
+                        this.experiences = curriculum.experiences ? curriculum.experiences : undefined;
+                        this.skills = curriculum.skills ? curriculum.skills : undefined;
+                        this.loading = false;
+                    }
+                },
+
+                _handleDataLoadError(err) {
+                    this.loading = false;
+                    this.error = err;
                 },
 
                 goToSkill(skillName) {
@@ -170,6 +175,16 @@
                         }, 300);
                     });
                 },
+
+                getExperienceDuration(job) {
+                    console.log('getExperienceDuration', job);
+                    if (job && job.startDate) {
+                        const startDate = new Date(job.startDate).toDateString();
+                        const endDate = job.endDate ? new Date(job.endDate).toDateString() : undefined;
+                        return `${startDate} - ${endDate ? emdDate : "Present"}`;
+                    }
+                    return "";
+                }
             }
         }
     </script>
