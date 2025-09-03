@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,183 +10,220 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div x-data="portfolioApp()" x-init="init()">
-        <!-- Navigation -->
-        <nav class="navbar" :class="{ 'hidden': !showNav }">
-            <div class="nav-container">
-                <a href="#" class="nav-logo" @click.prevent="setPage('home')">Oscar Camacho</a>
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'home' }" @click.prevent="setPage('home')">Home</a></li>
-                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'experience' }" @click.prevent="setPage('experience')">Experience</a></li>
-                    <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'skills' }" @click.prevent="setPage('skills')">Skills</a></li>
-                </ul>
-            </div>
-        </nav>
+<div x-data="portfolioApp()" x-init="init()">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" @click="toggleTheme()" :title="isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'">
+        <i :class="isDarkTheme ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
 
-        <!-- App Container -->
-        <div class="app-container">
-            <!-- Loading State -->
-            <div x-show="loading" class="loading">
-                <i class="fas fa-circle-notch"></i>
-                <div>Loading portfolio data...</div>
-            </div>
+    <!-- Navigation -->
+    <nav class="navbar" :class="{ 'hidden': !showNav }">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" @click.prevent="setPage('home')">Oscar Camacho</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'home' }" @click.prevent="setPage('home')">Home</a></li>
+                <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'experience' }" @click.prevent="setPage('experience')">Experience</a></li>
+                <li><a href="#" class="nav-link" :class="{ 'active': currentPage === 'skills' }" @click.prevent="setPage('skills')">Skills</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <!-- Home/Splash Page -->
-            <div x-show="currentPage === 'home'" class="page">
-                <div class="splash">
-                    <h1 class="splash-name" x-text="personal.name">Alexandra Blackwood</h1>
-                    <div class="splash-title" x-text="personal.title">Senior Full Stack Developer</div>
-                    <div class="splash-contact">
-                        <a href="#" class="contact-item" x-show="personal.email">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value" x-text="personal.email"></div>
-                        </a>
-                        <a href="#" class="contact-item" x-show="personal.phone">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value" x-text="personal.phone"></div>
-                        </a>
-                        <a :href="'https://linkedin.com/in/' + personal.linkedin" target="_blank" class="contact-item" x-show="personal.linkedin">
-                            <i class="fab fa-linkedin"></i>
-                            <div class="contact-label">LinkedIn</div>
-                            <div class="contact-value">Profile</div>
-                        </a>
-                        <a :href="'https://github.com/' + personal.github" target="_blank" class="contact-item" x-show="personal.github">
-                            <i class="fab fa-github"></i>
-                            <div class="contact-label">GitHub</div>
-                            <div class="contact-value">Repository</div>
-                        </a>
-                    </div>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Loading State -->
+        <div x-show="loading" class="loading">
+            <i class="fas fa-circle-notch"></i>
+            <div>Loading portfolio data...</div>
+        </div>
+
+        <!-- Home/Splash Page -->
+        <div x-show="currentPage === 'home'" class="page">
+            <div class="splash">
+                <h1 class="splash-name" x-text="personal.name">Oscar Camacho</h1>
+                <div class="splash-title" x-text="personal.title">Full Stack Developer</div>
+                <div class="splash-contact">
+                    <a :href="'mailto:' + personal.email" class="contact-item" x-show="personal.email">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value" x-text="personal.email"></div>
+                    </a>
+                    <a :href="'tel:' + personal.phone" class="contact-item" x-show="personal.phone">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value" x-text="personal.phone"></div>
+                    </a>
+                    <a :href="'https://linkedin.com/in/' + personal.linkedin" target="_blank" class="contact-item" x-show="personal.linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Profile</div>
+                    </a>
+                    <a :href="'https://github.com/' + personal.github" target="_blank" class="contact-item" x-show="personal.github">
+                        <i class="fab fa-github"></i>
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">Repository</div>
+                    </a>
                 </div>
             </div>
+        </div>
 
-            <!-- Experience Page -->
-            <div x-show="currentPage === 'experience'" class="page">
-                <div class="experience-container">
-                    <h1 class="page-title">Professional Experience</h1>
-                    <template x-for="(job, index) in experiences" :key="index">
-                        <div class="experience-item visible">
-                            <div class="experience-header">
-                                <div>
-                                    <div class="job-title" x-text="job.position"></div>
-                                    <div class="company-name" x-text="job.company"></div>
-                                </div>
-                                <div class="job-duration" x-text="getExperienceDuration(job)"></div>
+        <!-- Experience Page -->
+        <div x-show="currentPage === 'experience'" class="page">
+            <div class="experience-container">
+                <h1 class="page-title">Professional Experience</h1>
+                <template x-for="(job, index) in experiences" :key="index">
+                    <div class="experience-item visible">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title" x-text="job.position"></div>
+                                <div class="company-name" x-text="job.company"></div>
                             </div>
-                            <ul class="job-description">
-                                <template x-for="task in job.tasks" :key="task">
-                                    <li x-text="task"></li>
-                                </template>
-                            </ul>
-                            <div class="skill-chips">
-                                <template x-for="skill in job.skills" :key="skill">
-                                    <a href="#" class="skill-chip" x-text="skill" @click.prevent="goToSkill(skill)"></a>
-                                </template>
+                            <div class="job-duration" x-text="getExperienceDuration(job)"></div>
+                        </div>
+                        <ul class="job-description">
+                            <template x-for="task in job.tasks" :key="task">
+                                <li x-text="task"></li>
+                            </template>
+                        </ul>
+                        <div class="skill-chips">
+                            <template x-for="skill in job.skills" :key="skill">
+                                <a href="#" class="skill-chip" x-text="skill" @click.prevent="goToSkill(skill)"></a>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Skills Page -->
+        <div x-show="currentPage === 'skills'" class="page">
+            <div class="skills-container">
+                <h1 class="page-title">Technical Skills</h1>
+                <div class="skills-canvas">
+                    <template x-for="skill in skills" :key="skill.name">
+                        <div class="skill-item" :id="'skill-' + skill.name.toLowerCase().replace(/\s+/g, '-')">
+                            <div class="skill-name">
+                                <i class="fas fa-code"></i>
+                                <span x-text="skill.name"></span>
+                            </div>
+                            <div class="skill-level" x-text="skill.level"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                     :style="`width: ${skill.percentage}%`"
+                                     x-intersect="$el.style.width = $el.style.width"></div>
                             </div>
                         </div>
                     </template>
                 </div>
             </div>
-
-            <!-- Skills Page -->
-            <div x-show="currentPage === 'skills'" class="page">
-                <div class="skills-container">
-                    <h1 class="page-title">Technical Skills</h1>
-                    <div class="skills-canvas">
-                        <template x-for="skill in skills" :key="skill.name">
-                            <div class="skill-item" :id="'skill-' + skill.name.toLowerCase().replace(/\s+/g, '-')">
-                                <div class="skill-name">
-                                    <i class="fas fa-code"></i>
-                                    <span x-text="skill.name"></span>
-                                </div>
-                                <div class="skill-level" x-text="skill.level"></div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill"
-                                         :style="`width: ${skill.percentage}%`"
-                                         x-intersect="$el.style.width = $el.style.width"></div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <script>
-        function portfolioApp() {
-            return {
-                loading: true,
-                error: false,
-                currentPage: 'home',
-                showNav: false,
-                personal: {},
-                experiences: [],
-                skills: {},
+</div>
+<script>
+    function portfolioApp() {
+        return {
+            loading: true,
+            error: false,
+            currentPage: 'home',
+            showNav: false,
+            personal: {},
+            experiences: [],
+            skills: {},
+            isDarkTheme: true,
 
-                async init() {
-                    await this.loadData();
+            async init() {
+                // Load saved theme preference
+                this.loadTheme();
+
+                await this.loadData();
+                this.loading = false;
+                setTimeout(() => {
+                    this.showNav = true;
+                }, 3000); // Show nav after splash animations
+            },
+
+            loadTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                this.isDarkTheme = savedTheme === 'dark';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            },
+
+            toggleTheme() {
+                this.isDarkTheme = !this.isDarkTheme;
+                const newTheme = this.isDarkTheme ? 'dark' : 'light';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Optional: Add a subtle feedback animation
+                const toggle = document.querySelector('.theme-toggle');
+                toggle.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    toggle.style.transform = 'scale(1)';
+                }, 150);
+            },
+
+            loadData() {
+                return fetch("https://raw.githubusercontent.com/OscarCamacho/contact-page/refs/heads/master/data.json")
+                    .then(res => res.json())
+                    .then(json => this._setCurriculum(json))
+                    .catch(err => this._handleDataLoadError(err));
+            },
+
+            setPage(page) {
+                this.currentPage = page;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            _setCurriculum(curriculum) {
+                if (curriculum) {
+                    this.personal = curriculum.personal ? curriculum.personal : {};
+                    this.experiences = curriculum.experiences ? curriculum.experiences : [];
+                    this.skills = curriculum.skills ? curriculum.skills : [];
                     this.loading = false;
-                    setTimeout(() => {
-                        this.showNav = true;
-                    }, 3000); // Show nav after splash animations
-                },
-
-                loadData() {
-                    return fetch("https://raw.githubusercontent.com/OscarCamacho/contact-page/refs/heads/master/data.json")
-                        .then(res => res.json())
-                        .then(json => this._setCurriculum(json))
-                        .catch(err => this._handleDataLoadError(err));
-                },
-
-                setPage(page) {
-                    this.currentPage = page;
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                },
-
-                _setCurriculum(curriculum) {
-                    if (curriculum) {
-                        this.personal = curriculum.personal ? curriculum.personal : undefined;
-                        this.experiences = curriculum.experiences ? curriculum.experiences : undefined;
-                        this.skills = curriculum.skills ? curriculum.skills : undefined;
-                        this.loading = false;
-                    }
-                },
-
-                _handleDataLoadError(err) {
-                    this.loading = false;
-                    this.error = err;
-                },
-
-                goToSkill(skillName) {
-                    this.setPage('skills');
-                    this.$nextTick(() => {
-                        setTimeout(() => {
-                            const element = document.getElementById('skill-' + skillName.toLowerCase().replace(/\s+/g, '-'));
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                element.style.borderColor = 'var(--accent)';
-                                element.style.boxShadow = '0 0 20px rgba(74, 158, 255, 0.3)';
-                                setTimeout(() => {
-                                    element.style.borderColor = '';
-                                    element.style.boxShadow = '';
-                                }, 2000);
-                            }
-                        }, 300);
-                    });
-                },
-
-                getExperienceDuration(job) {
-                    console.log('getExperienceDuration', job);
-                    if (job && job.startDate) {
-                        const startDate = new Date(job.startDate).toDateString();
-                        const endDate = job.endDate ? new Date(job.endDate).toDateString() : undefined;
-                        return `${startDate} - ${endDate ? emdDate : "Present"}`;
-                    }
-                    return "";
                 }
+            },
+
+            _handleDataLoadError(err) {
+                console.error('Failed to load portfolio data:', err);
+                this.loading = false;
+                this.error = err;
+            },
+
+            goToSkill(skillName) {
+                this.setPage('skills');
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        const element = document.getElementById('skill-' + skillName.toLowerCase().replace(/\s+/g, '-'));
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            element.style.borderColor = 'var(--accent)';
+                            element.style.boxShadow = '0 0 20px rgba(74, 158, 255, 0.3)';
+                            setTimeout(() => {
+                                element.style.borderColor = '';
+                                element.style.boxShadow = '';
+                            }, 2000);
+                        }
+                    }, 300);
+                });
+            },
+
+            getExperienceDuration(job) {
+                if (job && job.startDate) {
+                    const startDate = new Date(job.startDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short'
+                    });
+                    const endDate = job.endDate ?
+                        new Date(job.endDate).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short'
+                        }) : 'Present';
+                    return `${startDate} - ${endDate}`;
+                }
+                return "";
             }
         }
-    </script>
+    }
+</script>
 </body>
 </html>
